@@ -28,8 +28,8 @@ public class CadastroView extends javax.swing.JFrame {
 
         btnModuloCadastroFornecedor = new javax.swing.JButton();
         btnModuloCadastroFuncionario = new javax.swing.JButton();
-        btnModuloCadastroIndefinido1 = new javax.swing.JButton();
-        btnModuloCadastroIndefinido = new javax.swing.JButton();
+        btnModuloCadastroCfop = new javax.swing.JButton();
+        btnModuloCadastroTributacao = new javax.swing.JButton();
         btnModuloCadastroProduto = new javax.swing.JButton();
         btnModuloCadastroCliente = new javax.swing.JButton();
 
@@ -55,15 +55,20 @@ public class CadastroView extends javax.swing.JFrame {
             }
         });
 
-        btnModuloCadastroIndefinido1.setText("Indefinido");
-        btnModuloCadastroIndefinido1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        btnModuloCadastroIndefinido.setText("Indefinido");
-        btnModuloCadastroIndefinido.setAutoscrolls(true);
-        btnModuloCadastroIndefinido.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnModuloCadastroIndefinido.addActionListener(new java.awt.event.ActionListener() {
+        btnModuloCadastroCfop.setText("CFOP");
+        btnModuloCadastroCfop.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnModuloCadastroCfop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModuloCadastroIndefinidoActionPerformed(evt);
+                btnModuloCadastroCfopActionPerformed(evt);
+            }
+        });
+
+        btnModuloCadastroTributacao.setText("Tributação");
+        btnModuloCadastroTributacao.setAutoscrolls(true);
+        btnModuloCadastroTributacao.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnModuloCadastroTributacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModuloCadastroTributacaoActionPerformed(evt);
             }
         });
 
@@ -95,13 +100,13 @@ public class CadastroView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                         .addComponent(btnModuloCadastroFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnModuloCadastroIndefinido1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnModuloCadastroCfop, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnModuloCadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnModuloCadastroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnModuloCadastroIndefinido, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnModuloCadastroTributacao, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -109,12 +114,12 @@ public class CadastroView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnModuloCadastroIndefinido1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnModuloCadastroCfop, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnModuloCadastroFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnModuloCadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnModuloCadastroIndefinido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnModuloCadastroTributacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnModuloCadastroCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
                     .addComponent(btnModuloCadastroProduto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -123,29 +128,41 @@ public class CadastroView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnModuloCadastroIndefinidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloCadastroIndefinidoActionPerformed
-        // Ação ao botão Indefinido
-    }//GEN-LAST:event_btnModuloCadastroIndefinidoActionPerformed
+    private void btnModuloCadastroTributacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloCadastroTributacaoActionPerformed
+        CadastroTributacaoView frame = new CadastroTributacaoView();
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnModuloCadastroTributacaoActionPerformed
 
     private void btnModuloCadastroFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloCadastroFuncionarioActionPerformed
         CadastroFuncionarioView frame = new CadastroFuncionarioView();
         frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnModuloCadastroFuncionarioActionPerformed
 
     private void btnModuloCadastroProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloCadastroProdutoActionPerformed
         CadastroProdutoView frame = new CadastroProdutoView();
         frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnModuloCadastroProdutoActionPerformed
 
     private void btnModuloCadastroFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloCadastroFornecedorActionPerformed
         CadastroFornecedorView frame = new CadastroFornecedorView();
         frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnModuloCadastroFornecedorActionPerformed
 
     private void btnModuloCadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloCadastroClienteActionPerformed
         CadastroClienteView frame = new CadastroClienteView();
         frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnModuloCadastroClienteActionPerformed
+
+    private void btnModuloCadastroCfopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloCadastroCfopActionPerformed
+        CadastroCfopView frame = new CadastroCfopView();
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnModuloCadastroCfopActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,11 +200,11 @@ public class CadastroView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnModuloCadastroCfop;
     private javax.swing.JButton btnModuloCadastroCliente;
     private javax.swing.JButton btnModuloCadastroFornecedor;
     private javax.swing.JButton btnModuloCadastroFuncionario;
-    private javax.swing.JButton btnModuloCadastroIndefinido;
-    private javax.swing.JButton btnModuloCadastroIndefinido1;
     private javax.swing.JButton btnModuloCadastroProduto;
+    private javax.swing.JButton btnModuloCadastroTributacao;
     // End of variables declaration//GEN-END:variables
 }
