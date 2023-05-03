@@ -5,48 +5,19 @@
 package cadastro.utils.controller;
 
 import cadastro.utils.model.CadastroFuncionarioModel;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.table.AbstractTableModel;
+
 
 /**
  *
  * @author ferna
  */
-public class CadastroFuncionarioController extends AbstractTableModel{
-    
-    private List<CadastroFuncionarioModel> linhas;
-    private String colunas[] = new String[]{"Matrícula", "Nome", "Cargo"};
-
-    public CadastroFuncionarioController() {
-        //linhas = new ArrayList<CadastroFuncionarioModel>;
+public class CadastroFuncionarioController {
+    public static boolean salvarAluno(String matricula, String nome, String cargo){
+        
+        CadastroFuncionarioModel funcionarioModel = new CadastroFuncionarioModel(matricula, nome, cargo);
+         return funcionarioModel.persistirNoBanco();
+        
+        
+        
     }
-
-    public CadastroFuncionarioController(List<CadastroFuncionarioModel> lista) {
-        linhas = new ArrayList<CadastroFuncionarioModel>(lista);
-    }
-    
-    
-    
-    
-    
-    
-    
-
-    @Override
-    public int getRowCount() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public int getColumnCount() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public Object getValueAt(int rowIndex, int columnIndex) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
-    
 }

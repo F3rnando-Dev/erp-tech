@@ -52,4 +52,8 @@ public class CadastroFuncionarioModel {
     public String toString() {
         return "CadastroFuncionarioModel{" + "matriculaDoFuncionario=" + matriculaDoFuncionario + ", nomeDoFuncionario=" + nomeDoFuncionario + ", cargoDoFuncionario=" + cargoDoFuncionario + '}';
     }
+    
+    public boolean persistirNoBanco(){
+        return true;
+    }
 }
