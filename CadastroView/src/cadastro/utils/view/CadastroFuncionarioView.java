@@ -6,6 +6,7 @@ package cadastro.utils.view;
 
 import cadastro.utils.controller.CadastroFuncionarioController;
 import java.util.Locale;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -210,8 +211,13 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
         estadoDosBotoes(true,false,false,false,false);    }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+       if(CadastroFuncionarioController.salvarAluno(lblMatricula.getText(), lblNome.getText(), lblCargo.getText())){
+           JOptionPane.showMessageDialog(this, "Funcionario salvo com sucesso!");
+        } else{
+           JOptionPane.showMessageDialog(this, "Erro ao salvar o funcionário!");
+       }
+       
         
-        CadastroFuncionarioController.salvarAluno(lblMatricula.getText(), lblNome.getText(), lblCargo.getText());
         estadoDosBotoes(true,false,false,false,false);
     }//GEN-LAST:event_btnSalvarActionPerformed
 
