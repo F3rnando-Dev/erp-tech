@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package cadastro.utils.model;
+package com.erptech.model;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -55,5 +57,10 @@ public class CadastroFuncionarioModel {
     
     public boolean persistirNoBanco(){
         return true;
+    }
+    
+    public ArrayList<CadastroFuncionarioModel> getFuncionarios(){
+        ArrayList<CadastroFuncionarioModel> listaFuncionarios = new ArrayList();
+        return listaFuncionarios;
     }
 }

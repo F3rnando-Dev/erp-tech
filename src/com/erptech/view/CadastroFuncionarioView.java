@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package cadastro.utils.view;
+package com.erptech.view;
 
-import cadastro.utils.controller.CadastroFuncionarioController;
+import com.erptech.controller.CadastroFuncionarioController;
 import java.util.Locale;
 import javax.swing.JOptionPane;
 
@@ -51,7 +51,6 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
         setTitle("Cadastro");
         setBackground(new java.awt.Color(51, 51, 255));
         setName("Modulo Cadastro"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(900, 500));
 
         tbFuncionario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -212,7 +211,11 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
        if(CadastroFuncionarioController.salvarAluno(lblMatricula.getText(), lblNome.getText(), lblCargo.getText())){
+           
+           //this.LoadTable();
            JOptionPane.showMessageDialog(this, "Funcionario salvo com sucesso!");
+           
+           
         } else{
            JOptionPane.showMessageDialog(this, "Erro ao salvar o funcionário!");
        }
