@@ -7,25 +7,26 @@ package com.erptech.view;
 import com.erptech.dao.CadastroFuncionarioDao;
 import com.erptech.model.CadastroFuncionarioModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author ferna
  */
 public class CadastroFuncionarioView extends javax.swing.JFrame {
-
+    public CadastroFuncionarioView() {
+        initComponents();
+        setLocationRelativeTo(null);
+        estadoDosBotoes(true, false, false, false, false);
+        listarNaTabela();
+    }
+    
     public void estadoDosBotoes(boolean botaoNovo, boolean botaoEditar, boolean botaoExcluir, boolean botaoSalvar, boolean botaoCancelar) {
         btnNovo.setEnabled(botaoNovo);
         btnEditar.setEnabled(botaoEditar);
         btnExcluir.setEnabled(botaoExcluir);
         btnSalvar.setEnabled(botaoSalvar);
         btnCancelar.setEnabled(botaoCancelar);
-    }
-
-    public CadastroFuncionarioView() {
-        initComponents();
-        setLocationRelativeTo(null);
-        estadoDosBotoes(true, false, false, false, false);
     }
 
     @SuppressWarnings("unchecked")
@@ -197,6 +198,27 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
+    public void listarNaTabela(){
+        DefaultTableModel modeloTabela = (DefaultTableModel) tbFuncionario.getModel();
+        modeloTabela.setNumRows(0);
+        
+        CadastroFuncionarioDao funcionarioDao = new CadastroFuncionarioDao();
+        
+        for (CadastroFuncionarioModel model: funcionarioDao.listarFuncionario()) {
+            
+            modeloTabela.addRow(new Object[]{
+                
+                model.getMatriculaDoFuncionario(),
+                model.getNomeDoFuncionario(),
+                model.getCargoDoFuncionario()
+                
+            });
+            
+        }
+        
+        
+    }
+    
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         estadoDosBotoes(false, false, false, true, true);
     }//GEN-LAST:event_btnNovoActionPerformed
@@ -218,8 +240,15 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
             funcionario.setNomeDoFuncionario(lblNome.getText());
             funcionario.setCargoDoFuncionario(lblCargo.getText());
             System.out.println();
-            funcionarioDao.create(funcionario);
+            funcionarioDao.cadastrarFuncionario(funcionario);
+            
             JOptionPane.showMessageDialog(null, "Funcionario cadastrado!"); 
+            
+            lblMatricula.setText("");
+            lblNome.setText("");
+            lblCargo.setText("");
+            
+            listarNaTabela();
         } catch (Exception exception){
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar funcionario!" +exception); 
         }
