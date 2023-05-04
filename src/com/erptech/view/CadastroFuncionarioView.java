@@ -4,8 +4,8 @@
  */
 package com.erptech.view;
 
-import com.erptech.controller.CadastroFuncionarioController;
-import java.util.Locale;
+import com.erptech.dao.CadastroFuncionarioDao;
+import com.erptech.model.CadastroFuncionarioModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,13 +14,13 @@ import javax.swing.JOptionPane;
  */
 public class CadastroFuncionarioView extends javax.swing.JFrame {
 
-     public void estadoDosBotoes(boolean botaoNovo, boolean botaoEditar, boolean botaoExcluir, boolean botaoSalvar, boolean botaoCancelar){
-         btnNovo.setEnabled(botaoNovo);
-         btnEditar.setEnabled(botaoEditar);
-         btnExcluir.setEnabled(botaoExcluir);
-         btnSalvar.setEnabled(botaoSalvar);
-         btnCancelar.setEnabled(botaoCancelar);
-        }
+    public void estadoDosBotoes(boolean botaoNovo, boolean botaoEditar, boolean botaoExcluir, boolean botaoSalvar, boolean botaoCancelar) {
+        btnNovo.setEnabled(botaoNovo);
+        btnEditar.setEnabled(botaoEditar);
+        btnExcluir.setEnabled(botaoExcluir);
+        btnSalvar.setEnabled(botaoSalvar);
+        btnCancelar.setEnabled(botaoCancelar);
+    }
 
     public CadastroFuncionarioView() {
         initComponents();
@@ -196,11 +196,9 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
-    
+
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
-        estadoDosBotoes(false,false,false,true,true);
+        estadoDosBotoes(false, false, false, true, true);
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
@@ -210,22 +208,27 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
         estadoDosBotoes(true,false,false,false,false);    }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-       if(CadastroFuncionarioController.salvarAluno(lblMatricula.getText(), lblNome.getText(), lblCargo.getText())){
-           
-           //this.LoadTable();
-           JOptionPane.showMessageDialog(this, "Funcionario salvo com sucesso!");
-           
-           
-        } else{
-           JOptionPane.showMessageDialog(this, "Erro ao salvar o funcionário!");
-       }
-       
+
+        estadoDosBotoes(true, false, false, false, false);
+
+        try{
+            CadastroFuncionarioModel funcionario = new CadastroFuncionarioModel();
+            CadastroFuncionarioDao funcionarioDao = new CadastroFuncionarioDao();
+            funcionario.setMatriculaDoFuncionario(lblMatricula.getText());
+            funcionario.setNomeDoFuncionario(lblNome.getText());
+            funcionario.setCargoDoFuncionario(lblCargo.getText());
+            System.out.println();
+            funcionarioDao.create(funcionario);
+            JOptionPane.showMessageDialog(null, "Funcionario cadastrado!"); 
+        } catch (Exception exception){
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar funcionario!" +exception); 
+        }
         
-        estadoDosBotoes(true,false,false,false,false);
+
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        estadoDosBotoes(true,false,false,false,false);
+        estadoDosBotoes(true, false, false, false, false);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void tbFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbFuncionarioMouseClicked
@@ -233,7 +236,7 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
     }//GEN-LAST:event_tbFuncionarioMouseClicked
 
     public static void main(String args[]) {
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new CadastroFuncionarioView().setVisible(true);

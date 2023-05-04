@@ -15,7 +15,7 @@ import java.sql.ResultSet;
  * @author ferna
  */
 public class ConnectionFactory {
-    private static final String DRIVER = "com.mysql.cj.jdbc.Drive";
+    private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String URL = "jdbc:mysql://localhost:3306/erptech?characterEncoding=utf8";
     private static final String USER = "root";
     private static final String PASSWORD = "root";
@@ -50,7 +50,7 @@ public class ConnectionFactory {
             stmt.close();
         }   
         } catch (SQLException ex){
-            throw new RuntimeException("Problem na exception "+ex);
+            throw new RuntimeException("Problem  na exception "+ex);
         }
     }
     

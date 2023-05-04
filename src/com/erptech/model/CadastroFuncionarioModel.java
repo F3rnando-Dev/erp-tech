@@ -55,10 +55,6 @@ public class CadastroFuncionarioModel {
         return "CadastroFuncionarioModel{" + "matriculaDoFuncionario=" + matriculaDoFuncionario + ", nomeDoFuncionario=" + nomeDoFuncionario + ", cargoDoFuncionario=" + cargoDoFuncionario + '}';
     }
     
-    public boolean persistirNoBanco(){
-        return true;
-    }
-    
     public ArrayList<CadastroFuncionarioModel> getFuncionarios(){
         ArrayList<CadastroFuncionarioModel> listaFuncionarios = new ArrayList();
         return listaFuncionarios;
