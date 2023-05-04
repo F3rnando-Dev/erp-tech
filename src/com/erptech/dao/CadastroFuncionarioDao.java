@@ -9,8 +9,5 @@ package com.erptech.dao;
  * @author ferna
  */
 public class CadastroFuncionarioDao {
-    private String matricula_funcionario;
-    private String nome_funcionario;
-    private String cargo_funcionario;
     
 }
