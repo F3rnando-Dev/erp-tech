@@ -3,11 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ferna/OneDrive/Documentos/com/erp-tech/src/com/erptech/controller/CadastroFuncionarioController.java</file>
-            <file>file:/C:/Users/ferna/OneDrive/Documentos/com/erp-tech/src/com/erptech/model/CadastroFuncionarioModel.java</file>
             <file>file:/C:/Users/ferna/OneDrive/Documentos/com/erp-tech/src/com/erptech/view/CadastroFuncionarioView.java</file>
             <file>file:/C:/Users/ferna/OneDrive/Documentos/com/erp-tech/src/com/erptech/dao/CadastroFuncionarioDao.java</file>
-            <file>file:/C:/Users/ferna/OneDrive/Documentos/com/erp-tech/src/com/erptech/connection/ConnectionFactory.java</file>
         </group>
     </open-files>
 </project-private>

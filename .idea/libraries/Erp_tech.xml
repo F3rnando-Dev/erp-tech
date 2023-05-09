@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Erp-tech">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/Erp-tech.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

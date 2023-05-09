@@ -61,11 +61,34 @@ public class CadastroFuncionarioDao {
             }
         } catch (SQLException ex) {
 
-        }finally{
+        } finally {
             ConnectionFactory.closeConnection(conn, stmt, rs);
-            
+
         }
         return listaDeFuncionarios;
+    }
+
+    public void AtualizarCadastroDeFuncionario(CadastroFuncionarioModel funcionario) {
+        Connection conn = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = conn.prepareStatement("UPDATE cadastro_funcionario SET matricula_funcionario = ?, nome_funcionario = ?,"
+                    + " cargo_funcionario = ? WHERE matricula_funcionario = ?");
+            stmt.setString(1, funcionario.getMatriculaDoFuncionario());
+            stmt.setString(2, funcionario.getNomeDoFuncionario());
+            stmt.setString(3, funcionario.getCargoDoFuncionario());
+            stmt.setString(4, funcionario.getMatriculaDoFuncionario());
+
+            stmt.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null,"Funcionário atualizado com sucesso!");
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao atualizarcadastro de funcionário!\n" + ex);
+        } finally {
+            ConnectionFactory.closeConnection(conn, stmt);
+        }
     }
 
 }
