@@ -6,6 +6,9 @@ package com.erptech.view;
 
 import com.erptech.dao.CadastroFuncionarioDao;
 import com.erptech.model.CadastroFuncionarioModel;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -15,13 +18,13 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CadastroFuncionarioView extends javax.swing.JFrame {
 
-    public CadastroFuncionarioView() {
+    public CadastroFuncionarioView() throws SQLException {
         initComponents();
         listarNaTabela();
         setLocationRelativeTo(null);
     }
-    
-    public void listarNaTabela() {
+
+    public void listarNaTabela() throws SQLException {
         DefaultTableModel modeloTabela = (DefaultTableModel) tbFuncionario.getModel();
         modeloTabela.setNumRows(0);
 
@@ -38,7 +41,6 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
         }
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -51,7 +53,7 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
         lblCargo = new javax.swing.JTextField();
         btnNovo = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
-        btnEditar = new javax.swing.JButton();
+        btnAtualizar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
         tbFuncionarios = new javax.swing.JScrollPane();
         tbFuncionario = new javax.swing.JTable();
@@ -74,14 +76,19 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
             }
         });
 
-        btnSalvar.setText("Salvar");
+        btnSalvar.setText("Cadastrar");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
             }
         });
 
-        btnEditar.setText("Editar");
+        btnAtualizar.setText("Atualizar");
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizarActionPerformed(evt);
+            }
+        });
 
         btnExcluir.setText("Excluir");
 
@@ -111,6 +118,16 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbFuncionarioMouseClicked(evt);
+            }
+        });
+        tbFuncionario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tbFuncionarioKeyReleased(evt);
+            }
+        });
         tbFuncionarios.setViewportView(tbFuncionario);
         if (tbFuncionario.getColumnModel().getColumnCount() > 0) {
             tbFuncionario.getColumnModel().getColumn(1).setPreferredWidth(400);
@@ -124,7 +141,6 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tbFuncionarios)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtCargo)
@@ -141,10 +157,11 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(334, Short.MAX_VALUE))))
+            .addComponent(tbFuncionarios)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,7 +182,7 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(tbFuncionarios, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
@@ -175,15 +192,15 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
-        
+
         lblMatricula.setText("");
         lblNome.setText("");
         lblCargo.setText("");
-        
+
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        
+
         try {
             CadastroFuncionarioModel funcionario = new CadastroFuncionarioModel();
             CadastroFuncionarioDao funcionarioDao = new CadastroFuncionarioDao();
@@ -203,10 +220,57 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
         } catch (Exception exception) {
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar funcionario!" + exception);
         }
-        
+
     }//GEN-LAST:event_btnSalvarActionPerformed
 
-   
+    private void tbFuncionarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbFuncionarioKeyReleased
+
+        if (tbFuncionario.getSelectedRow() != -1) {
+            lblMatricula.setText(tbFuncionario.getValueAt(tbFuncionario.getSelectedRow(), 0).toString());
+            lblNome.setText(tbFuncionario.getValueAt(tbFuncionario.getSelectedRow(), 1).toString());
+            lblCargo.setText(tbFuncionario.getValueAt(tbFuncionario.getSelectedRow(), 2).toString());
+        }
+
+    }//GEN-LAST:event_tbFuncionarioKeyReleased
+
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+
+        if (tbFuncionario.getSelectedRow() != -1) {
+            try {
+                CadastroFuncionarioModel funcionario = new CadastroFuncionarioModel();
+                CadastroFuncionarioDao funcionarioDao = new CadastroFuncionarioDao();
+                
+                funcionario.setMatriculaDoFuncionario(lblMatricula.getText());
+                funcionario.setNomeDoFuncionario(lblNome.getText());
+                funcionario.setCargoDoFuncionario(lblCargo.getText());
+                funcionario.setMatriculaDoFuncionario((String) tbFuncionario.getValueAt(tbFuncionario.getSelectedRow(), 0));
+                
+                funcionarioDao.AtualizarCadastroDeFuncionario(funcionario);
+
+                JOptionPane.showMessageDialog(null, "Cadastro alterado com sucesso!");
+
+                lblMatricula.setText("");
+                lblNome.setText("");
+                lblCargo.setText("");
+
+                listarNaTabela();
+            } catch (Exception exception) {
+                JOptionPane.showMessageDialog(null, "Erro ao atualizar cadastro de funcionario!" + exception);
+            }
+        }
+
+    }//GEN-LAST:event_btnAtualizarActionPerformed
+
+    private void tbFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbFuncionarioMouseClicked
+
+        if (tbFuncionario.getSelectedRow() != -1) {
+            lblMatricula.setText(tbFuncionario.getValueAt(tbFuncionario.getSelectedRow(), 0).toString());
+            lblNome.setText(tbFuncionario.getValueAt(tbFuncionario.getSelectedRow(), 1).toString());
+            lblCargo.setText(tbFuncionario.getValueAt(tbFuncionario.getSelectedRow(), 2).toString());
+        }
+
+    }//GEN-LAST:event_tbFuncionarioMouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -235,13 +299,17 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroFuncionarioView().setVisible(true);
+                try {
+                    new CadastroFuncionarioView().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(CadastroFuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnSalvar;

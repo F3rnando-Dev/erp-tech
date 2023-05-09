@@ -33,13 +33,13 @@ public class CadastroFuncionarioDao {
 
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao salvar funcionário!\n" + ex);
+//            throw new SQLException(null, ex);
         } finally {
             ConnectionFactory.closeConnection(conn, stmt);
         }
     }
 
-    public List<CadastroFuncionarioModel> listarFuncionario() {
+    public List<CadastroFuncionarioModel> listarFuncionario() throws SQLException {
         Connection conn = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -60,7 +60,7 @@ public class CadastroFuncionarioDao {
                 listaDeFuncionarios.add(funcionario);
             }
         } catch (SQLException ex) {
-
+            throw new SQLException(null, ex);
         } finally {
             ConnectionFactory.closeConnection(conn, stmt, rs);
 
@@ -68,12 +68,12 @@ public class CadastroFuncionarioDao {
         return listaDeFuncionarios;
     }
 
-    public void AtualizarCadastroDeFuncionario(CadastroFuncionarioModel funcionario) {
+    public void AtualizarCadastroDeFuncionario(CadastroFuncionarioModel funcionario) throws SQLException {
         Connection conn = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
 
         try {
-            stmt = conn.prepareStatement("UPDATE cadastro_funcionario SET matricula_funcionario = ?, nome_funcionario = ?,"
+            stmt = conn.prepareStatement("UPDATE erptech.cadastro_funcionario SET matricula_funcionario = ?, nome_funcionario = ?,"
                     + " cargo_funcionario = ? WHERE matricula_funcionario = ?");
             stmt.setString(1, funcionario.getMatriculaDoFuncionario());
             stmt.setString(2, funcionario.getNomeDoFuncionario());
@@ -82,10 +82,8 @@ public class CadastroFuncionarioDao {
 
             stmt.executeUpdate();
             
-            JOptionPane.showMessageDialog(null,"Funcionário atualizado com sucesso!");
-            
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao atualizarcadastro de funcionário!\n" + ex);
+            throw new SQLException(null, ex);
         } finally {
             ConnectionFactory.closeConnection(conn, stmt);
         }
