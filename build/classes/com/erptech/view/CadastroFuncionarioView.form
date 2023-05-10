@@ -46,14 +46,14 @@
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="btnNovo" min="-2" pref="134" max="-2" attributes="0"/>
+                      <Component id="btnNovo" min="-2" pref="135" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnSalvar" min="-2" pref="134" max="-2" attributes="0"/>
+                      <Component id="btnSalvar" min="-2" pref="135" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnAtualizar" min="-2" pref="134" max="-2" attributes="0"/>
+                      <Component id="btnAtualizar" min="-2" pref="135" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnExcluir" min="-2" pref="134" max="-2" attributes="0"/>
-                      <EmptySpace pref="334" max="32767" attributes="0"/>
+                      <Component id="btnExcluir" min="-2" pref="135" max="-2" attributes="0"/>
+                      <EmptySpace pref="330" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -80,10 +80,10 @@
               </Group>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnSalvar" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="btnNovo" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="btnAtualizar" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="btnExcluir" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="btnSalvar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="btnNovo" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="btnAtualizar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="btnExcluir" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="tbFuncionarios" pref="230" max="32767" attributes="0"/>
