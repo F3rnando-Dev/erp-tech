@@ -68,6 +68,23 @@ public class CadastroFuncionarioDao {
         return listaDeFuncionarios;
     }
 
+    public void excluirCadastroDeFuncionario(CadastroFuncionarioModel funcionario) throws SQLException {
+        Connection conn = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = conn.prepareStatement("DELETE FROM erptech.cadastro_funcionario WHERE matricula_funcionario = ?");
+            stmt.setString(1, funcionario.getMatriculaDoFuncionario());
+
+            stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            throw new SQLException(null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(conn, stmt);
+        }
+    }
+
     public void AtualizarCadastroDeFuncionario(CadastroFuncionarioModel funcionario) throws SQLException {
         Connection conn = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -81,7 +98,7 @@ public class CadastroFuncionarioDao {
             stmt.setString(4, funcionario.getMatriculaDoFuncionario());
 
             stmt.executeUpdate();
-            
+
         } catch (SQLException ex) {
             throw new SQLException(null, ex);
         } finally {

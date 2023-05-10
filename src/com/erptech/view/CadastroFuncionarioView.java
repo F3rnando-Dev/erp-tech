@@ -91,6 +91,11 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
         });
 
         btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
 
         tbFuncionario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -239,12 +244,12 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
             try {
                 CadastroFuncionarioModel funcionario = new CadastroFuncionarioModel();
                 CadastroFuncionarioDao funcionarioDao = new CadastroFuncionarioDao();
-                
+
                 funcionario.setMatriculaDoFuncionario(lblMatricula.getText());
                 funcionario.setNomeDoFuncionario(lblNome.getText());
                 funcionario.setCargoDoFuncionario(lblCargo.getText());
                 funcionario.setMatriculaDoFuncionario((String) tbFuncionario.getValueAt(tbFuncionario.getSelectedRow(), 0));
-                
+
                 funcionarioDao.AtualizarCadastroDeFuncionario(funcionario);
 
                 JOptionPane.showMessageDialog(null, "Cadastro alterado com sucesso!");
@@ -270,6 +275,33 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_tbFuncionarioMouseClicked
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+
+        if (tbFuncionario.getSelectedRow() != -1) {
+            try {
+                CadastroFuncionarioModel funcionario = new CadastroFuncionarioModel();
+                CadastroFuncionarioDao funcionarioDao = new CadastroFuncionarioDao();
+                
+                funcionario.setMatriculaDoFuncionario((String) tbFuncionario.getValueAt(tbFuncionario.getSelectedRow(), 0));
+
+                funcionarioDao.excluirCadastroDeFuncionario(funcionario);
+
+                JOptionPane.showMessageDialog(null, "Cadastro "+funcionario.getMatriculaDoFuncionario()+" excluido com sucesso!");
+
+                lblMatricula.setText("");
+                lblNome.setText("");
+                lblCargo.setText("");
+
+                listarNaTabela();
+            } catch (Exception exception) {
+                JOptionPane.showMessageDialog(null, "Erro ao excluir cadastro de funcionario!" + exception);
+            }
+
+        }
+
+
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
