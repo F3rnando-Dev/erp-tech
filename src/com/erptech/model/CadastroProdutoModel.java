@@ -10,53 +10,74 @@ import java.util.ArrayList;
  *
  * @author ferna
  */
-public class CadastroFuncionarioModel {
+public class CadastroProdutoModel {
     
-    private String matriculaDoFuncionario;
-    private String nomeDoFuncionario;
-    private String cargoDoFuncionario;
+    private int codigoDoProduto;
+    private String descricaoDoProduto;
+    private double PrecoDoProduto;
+    private int QuantidadeEmEstoqueDoProduto;
+    private String UnidadeDeComercializacaoDoProduto;
     
-    public CadastroFuncionarioModel(){
+    
+    public CadastroProdutoModel(){
         
     }
-    
-    public CadastroFuncionarioModel(String matricula, String nome, String cargo){
-        this.matriculaDoFuncionario = matricula;
-        this.nomeDoFuncionario = nome;
-        this.cargoDoFuncionario = cargo;
-    }    
 
-    public String getMatriculaDoFuncionario() {
-        return matriculaDoFuncionario;
+    public CadastroProdutoModel(int codigoDoProduto, String descricaoDoProduto, double PrecoDoProduto, int QuantidadeEmEstoqueDoProduto, String UnidadeDeComercializacaoDoProduto) {
+        this.codigoDoProduto = codigoDoProduto;
+        this.descricaoDoProduto = descricaoDoProduto;
+        this.PrecoDoProduto = PrecoDoProduto;
+        this.QuantidadeEmEstoqueDoProduto = QuantidadeEmEstoqueDoProduto;
+        this.UnidadeDeComercializacaoDoProduto = UnidadeDeComercializacaoDoProduto;
     }
 
-    public void setMatriculaDoFuncionario(String matriculaDoFuncionario) {
-        this.matriculaDoFuncionario = matriculaDoFuncionario;
+    public int getCodigoDoProduto() {
+        return codigoDoProduto;
     }
 
-    public String getNomeDoFuncionario() {
-        return nomeDoFuncionario;
+    public void setCodigoDoProduto(int codigoDoProduto) {
+        this.codigoDoProduto = codigoDoProduto;
     }
 
-    public void setNomeDoFuncionario(String nomeDoFuncionario) {
-        this.nomeDoFuncionario = nomeDoFuncionario;
+    public String getDescricaoDoProduto() {
+        return descricaoDoProduto;
     }
 
-    public String getCargoDoFuncionario() {
-        return cargoDoFuncionario;
+    public void setDescricaoDoProduto(String descricaoDoProduto) {
+        this.descricaoDoProduto = descricaoDoProduto;
     }
 
-    public void setCargoDoFuncionario(String cargoDoFuncionario) {
-        this.cargoDoFuncionario = cargoDoFuncionario;
+    public double getPrecoDoProduto() {
+        return PrecoDoProduto;
+    }
+
+    public void setPrecoDoProduto(double PrecoDoProduto) {
+        this.PrecoDoProduto = PrecoDoProduto;
+    }
+
+    public int getQuantidadeEmEstoqueDoProduto() {
+        return QuantidadeEmEstoqueDoProduto;
+    }
+
+    public void setQuantidadeEmEstoqueDoProduto(int QuantidadeEmEstoqueDoProduto) {
+        this.QuantidadeEmEstoqueDoProduto = QuantidadeEmEstoqueDoProduto;
+    }
+
+    public String getUnidadeDeComercializacaoDoProduto() {
+        return UnidadeDeComercializacaoDoProduto;
+    }
+
+    public void setUnidadeDeComercializacaoDoProduto(String UnidadeDeComercializacaoDoProduto) {
+        this.UnidadeDeComercializacaoDoProduto = UnidadeDeComercializacaoDoProduto;
     }
 
     @Override
     public String toString() {
-        return "CadastroFuncionarioModel{" + "matriculaDoFuncionario=" + matriculaDoFuncionario + ", nomeDoFuncionario=" + nomeDoFuncionario + ", cargoDoFuncionario=" + cargoDoFuncionario + '}';
+        return "CadastroProdutoModel{" + "codigoDoProduto=" + codigoDoProduto + ", descricaoDoProduto=" + descricaoDoProduto + ", PrecoDoProduto=" + PrecoDoProduto + ", QuantidadeEmEstoqueDoProduto=" + QuantidadeEmEstoqueDoProduto + ", UnidadeDeComercializacaoDoProduto=" + UnidadeDeComercializacaoDoProduto + '}';
     }
     
-    public ArrayList<CadastroFuncionarioModel> getFuncionarios(){
-        ArrayList<CadastroFuncionarioModel> listaFuncionarios = new ArrayList();
-        return listaFuncionarios;
+    public ArrayList<CadastroProdutoModel> getProdutos(){
+        ArrayList<CadastroProdutoModel> listaDeProdutos = new ArrayList();
+        return listaDeProdutos;
     }
 }
