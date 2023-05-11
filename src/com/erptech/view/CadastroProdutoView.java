@@ -61,9 +61,11 @@ public class CadastroProdutoView extends javax.swing.JFrame {
         });
 
         btnNovo.setText("Novo");
-        btnNovo.setMaximumSize(new java.awt.Dimension(72, 23));
-        btnNovo.setMinimumSize(new java.awt.Dimension(72, 23));
-        btnNovo.setPreferredSize(new java.awt.Dimension(72, 23));
+        btnNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoActionPerformed(evt);
+            }
+        });
 
         btnCadastrar.setText("Cadastrar");
         btnCadastrar.setMaximumSize(new java.awt.Dimension(72, 23));
@@ -76,9 +78,6 @@ public class CadastroProdutoView extends javax.swing.JFrame {
         btnAtualizar.setPreferredSize(new java.awt.Dimension(72, 23));
 
         btnExcluir.setText("Excluir");
-        btnExcluir.setMaximumSize(new java.awt.Dimension(72, 23));
-        btnExcluir.setMinimumSize(new java.awt.Dimension(72, 23));
-        btnExcluir.setPreferredSize(new java.awt.Dimension(72, 23));
 
         tbProdutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -188,12 +187,21 @@ public class CadastroProdutoView extends javax.swing.JFrame {
 
     private void cbxUnComercActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxUnComercActionPerformed
         
-        System.out.println("");
-        System.out.println("");
-        System.out.println("");
+//        System.out.println("");
+//        System.out.println("");
+//        System.out.println("");
         
         
     }//GEN-LAST:event_cbxUnComercActionPerformed
+
+    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
+        
+        lblCodigo.setText("");
+        lblDescricao.setText("");
+        lblPreco.setText("");
+        lblEstoque.setText("");
+        
+    }//GEN-LAST:event_btnNovoActionPerformed
 
     /**
      * @param args the command line arguments
