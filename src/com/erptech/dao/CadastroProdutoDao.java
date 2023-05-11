@@ -6,11 +6,11 @@ package com.erptech.dao;
 
 import com.erptech.connection.ConnectionFactory;
 import com.erptech.model.CadastroFuncionarioModel;
+import com.erptech.model.CadastroProdutoModel;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
-import javax.swing.JOptionPane;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
@@ -18,22 +18,24 @@ import java.util.ArrayList;
  *
  * @author ferna
  */
-public class CadastroFuncionarioDao {
+public class CadastroProdutoDao {
 
-    public void cadastrarFuncionario(CadastroFuncionarioModel funcionario) {
+    public void cadastrarFuncionario(CadastroProdutoModel produto) throws SQLException {
         Connection conn = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
 
         try {
-            stmt = conn.prepareStatement("INSERT INTO cadastro_funcionario (matricula_funcionario, nome_funcionario,"
-                    + " cargo_funcionario) VALUES (?, ?, ?)");
-            stmt.setString(1, funcionario.getMatriculaDoFuncionario());
-            stmt.setString(2, funcionario.getNomeDoFuncionario());
-            stmt.setString(3, funcionario.getCargoDoFuncionario());
+            stmt = conn.prepareStatement("INSERT INTO erptech.cadastro_produto (codigo_produto, descricao_produto,"
+                    + " unidade_comercializacao_produto, preco_produto, quantidade_produto) VALUES (?, ?, ?, ?, ?);");
+            stmt.setInt(1, produto.getCodigoDoProduto());
+            stmt.setString(2, produto.getDescricaoDoProduto());
+            stmt.setString(3, produto.getUnidadeDeComercializacaoDoProduto());
+            stmt.setDouble(4, produto.getPrecoDoProduto());
+            stmt.setInt(5, produto.getQuantidadeEmEstoqueDoProduto());
 
             stmt.executeUpdate();
         } catch (SQLException ex) {
-//            throw new SQLException(null, ex);
+            throw new SQLException(null, ex);
         } finally {
             ConnectionFactory.closeConnection(conn, stmt);
         }
