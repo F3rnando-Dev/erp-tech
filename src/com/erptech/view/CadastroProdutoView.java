@@ -4,6 +4,14 @@
  */
 package com.erptech.view;
 
+import com.erptech.dao.CadastroProdutoDao;
+import com.erptech.model.CadastroProdutoModel;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ferna
@@ -13,12 +21,31 @@ public class CadastroProdutoView extends javax.swing.JFrame {
     /**
      * Creates new form CadastroProdutoView
      */
-    public CadastroProdutoView() {
+    public CadastroProdutoView() throws SQLException {
         initComponents();
+        listarNaTabela();
         setLocationRelativeTo(null);
     }
 
-    
+    public void listarNaTabela() throws SQLException {
+        DefaultTableModel modeloTabela = (DefaultTableModel) tbProdutos.getModel();
+        modeloTabela.setNumRows(0);
+
+        CadastroProdutoDao produtoDao = new CadastroProdutoDao();
+
+        for (CadastroProdutoModel model : produtoDao.listarProdutos()) {
+
+            modeloTabela.addRow(new Object[]{
+                model.getCodigoDoProduto(),
+                model.getDescricaoDoProduto(),
+                model.getUnidadeDeComercializacaoDoProduto(),
+                model.getPrecoDoProduto(),
+                model.getQuantidadeEmEstoqueDoProduto()
+
+            });
+        }
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -53,7 +80,7 @@ public class CadastroProdutoView extends javax.swing.JFrame {
 
         txtUnComerc.setText("Unidade de Comercialização:");
 
-        cbxUnComerc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Selecione uma opção>", "Unidade", "Duzia", "Centena" }));
+        cbxUnComerc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Selecione uma opção>", "Unidade", "Dezena", "Duzia", "Centena" }));
         cbxUnComerc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxUnComercActionPerformed(evt);
@@ -71,6 +98,11 @@ public class CadastroProdutoView extends javax.swing.JFrame {
         btnCadastrar.setMaximumSize(new java.awt.Dimension(72, 23));
         btnCadastrar.setMinimumSize(new java.awt.Dimension(72, 23));
         btnCadastrar.setPreferredSize(new java.awt.Dimension(72, 23));
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
 
         btnAtualizar.setText("Atualizar");
         btnAtualizar.setMaximumSize(new java.awt.Dimension(72, 23));
@@ -186,22 +218,49 @@ public class CadastroProdutoView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbxUnComercActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxUnComercActionPerformed
-        
-//        System.out.println("");
-//        System.out.println("");
-//        System.out.println("");
-        
-        
+
+
     }//GEN-LAST:event_cbxUnComercActionPerformed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
-        
+
         lblCodigo.setText("");
         lblDescricao.setText("");
         lblPreco.setText("");
         lblEstoque.setText("");
-        
+        cbxUnComerc.setSelectedIndex(0);
+
     }//GEN-LAST:event_btnNovoActionPerformed
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+
+        try {
+            CadastroProdutoModel produto = new CadastroProdutoModel();
+            CadastroProdutoDao produtoDao = new CadastroProdutoDao();
+            produto.setCodigoDoProduto(lblCodigo.getSelectionStart());
+            produto.setDescricaoDoProduto(lblDescricao.getText());
+            produto.setUnidadeDeComercializacaoDoProduto(cbxUnComerc.getItemAt(1));
+            produto.setPrecoDoProduto(lblPreco.getSelectionStart());
+            produto.setQuantidadeEmEstoqueDoProduto(lblEstoque.getSelectionStart());
+
+            produtoDao.cadastrarProduto(produto);
+
+            JOptionPane.showMessageDialog(null, "Produto cadastrado!");
+
+            lblCodigo.setText("");
+            lblDescricao.setText("");
+            lblPreco.setText("");
+            lblEstoque.setText("");
+            cbxUnComerc.setSelectedIndex(0);
+
+            listarNaTabela();
+        } catch (SQLException exception) {
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar funcionario!" + exception);
+            System.out.println(exception);
+        }
+
+
+    }//GEN-LAST:event_btnCadastrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,7 +292,11 @@ public class CadastroProdutoView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroProdutoView().setVisible(true);
+                try {
+                    new CadastroProdutoView().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(CadastroProdutoView.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

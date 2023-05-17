@@ -5,7 +5,6 @@
 package com.erptech.dao;
 
 import com.erptech.connection.ConnectionFactory;
-import com.erptech.model.CadastroFuncionarioModel;
 import com.erptech.model.CadastroProdutoModel;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
@@ -20,13 +19,13 @@ import java.util.ArrayList;
  */
 public class CadastroProdutoDao {
 
-    public void cadastrarFuncionario(CadastroProdutoModel produto) throws SQLException {
+    public void cadastrarProduto(CadastroProdutoModel produto) throws SQLException {
         Connection conn = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
 
         try {
             stmt = conn.prepareStatement("INSERT INTO erptech.cadastro_produto (codigo_produto, descricao_produto,"
-                    + " unidade_comercializacao_produto, preco_produto, quantidade_produto) VALUES (?, ?, ?, ?, ?);");
+                    + " unidade_comercializacao_produto, preco_produto, quantidade_produto) VALUES (?, ?, ?, ?, ?)");
             stmt.setInt(1, produto.getCodigoDoProduto());
             stmt.setString(2, produto.getDescricaoDoProduto());
             stmt.setString(3, produto.getUnidadeDeComercializacaoDoProduto());
@@ -41,25 +40,27 @@ public class CadastroProdutoDao {
         }
     }
 
-    public List<CadastroFuncionarioModel> listarFuncionario() throws SQLException {
+    public List<CadastroProdutoModel> listarProdutos() throws SQLException {
         Connection conn = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        List<CadastroFuncionarioModel> listaDeFuncionarios = new ArrayList<>();
+        List<CadastroProdutoModel> listaDeProdutos = new ArrayList<>();
 
         try {
-            stmt = conn.prepareStatement("SELECT * FROM cadastro_funcionario");
+            stmt = conn.prepareStatement("SELECT * FROM cadastro_produto");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
-                CadastroFuncionarioModel funcionario = new CadastroFuncionarioModel();
+                CadastroProdutoModel produto = new CadastroProdutoModel();
 
-                funcionario.setMatriculaDoFuncionario(rs.getString("MATRICULA_FUNCIONARIO"));
-                funcionario.setNomeDoFuncionario(rs.getString("NOME_FUNCIONARIO"));
-                funcionario.setCargoDoFuncionario(rs.getString("CARGO_FUNCIONARIO"));
+                produto.setCodigoDoProduto(rs.getInt("CODIGO_PRODUTO"));
+                produto.setDescricaoDoProduto(rs.getString("DESCRICAO_PRODUTO"));
+                produto.setUnidadeDeComercializacaoDoProduto(rs.getString("UNIDADE_COMERCIALIZACAO_PRODUTO"));
+                produto.setPrecoDoProduto(rs.getDouble("PRECO_PRODUTO"));
+                produto.setQuantidadeEmEstoqueDoProduto(rs.getInt("QUANTIDADE_PRODUTO"));
 
-                listaDeFuncionarios.add(funcionario);
+                listaDeProdutos.add(produto);
             }
         } catch (SQLException ex) {
             throw new SQLException(null, ex);
@@ -67,16 +68,16 @@ public class CadastroProdutoDao {
             ConnectionFactory.closeConnection(conn, stmt, rs);
 
         }
-        return listaDeFuncionarios;
+        return listaDeProdutos;
     }
 
-    public void excluirCadastroDeFuncionario(CadastroFuncionarioModel funcionario) throws SQLException {
+    public void excluirCadastroDeProduto(CadastroProdutoModel produto) throws SQLException {
         Connection conn = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
 
         try {
-            stmt = conn.prepareStatement("DELETE FROM erptech.cadastro_funcionario WHERE matricula_funcionario = ?");
-            stmt.setString(1, funcionario.getMatriculaDoFuncionario());
+            stmt = conn.prepareStatement("DELETE FROM erptech.cadastro_produto WHERE codigo_produto = ?");
+            stmt.setInt(1, produto.getCodigoDoProduto());
 
             stmt.executeUpdate();
 
@@ -87,17 +88,19 @@ public class CadastroProdutoDao {
         }
     }
 
-    public void AtualizarCadastroDeFuncionario(CadastroFuncionarioModel funcionario) throws SQLException {
+    public void AtualizarCadastroDeProduto(CadastroProdutoModel produto) throws SQLException {
         Connection conn = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
 
         try {
-            stmt = conn.prepareStatement("UPDATE erptech.cadastro_funcionario SET matricula_funcionario = ?, nome_funcionario = ?,"
-                    + " cargo_funcionario = ? WHERE matricula_funcionario = ?");
-            stmt.setString(1, funcionario.getMatriculaDoFuncionario());
-            stmt.setString(2, funcionario.getNomeDoFuncionario());
-            stmt.setString(3, funcionario.getCargoDoFuncionario());
-            stmt.setString(4, funcionario.getMatriculaDoFuncionario());
+            stmt = conn.prepareStatement("UPDATE erptech.cadastro_produto SET codigo_produto = ?, descricao_produto = ?,"
+                    + " unidade_comercializacao_produto = ?, preco_produto = ?, quantidade_produto = ? WHERE codigo_produto = ?");
+            stmt.setInt(1, produto.getCodigoDoProduto());
+            stmt.setString(2, produto.getDescricaoDoProduto());
+            stmt.setString(3, produto.getUnidadeDeComercializacaoDoProduto());
+            stmt.setDouble(4, produto.getPrecoDoProduto());
+            stmt.setInt(5, produto.getQuantidadeEmEstoqueDoProduto());
+            stmt.setInt(6, produto.getCodigoDoProduto());
 
             stmt.executeUpdate();
 

@@ -30,7 +30,7 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
 
         CadastroFuncionarioDao funcionarioDao = new CadastroFuncionarioDao();
 
-        for (CadastroFuncionarioModel model : funcionarioDao.listarFuncionario()) {
+        for (CadastroFuncionarioModel model : funcionarioDao.listarFuncionarios()) {
 
             modeloTabela.addRow(new Object[]{
                 model.getMatriculaDoFuncionario(),
