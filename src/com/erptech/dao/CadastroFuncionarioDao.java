@@ -39,7 +39,7 @@ public class CadastroFuncionarioDao {
         }
     }
 
-    public List<CadastroFuncionarioModel> listarFuncionario() throws SQLException {
+    public List<CadastroFuncionarioModel> listarFuncionarios() throws SQLException {
         Connection conn = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;

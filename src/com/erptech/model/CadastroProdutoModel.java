@@ -14,9 +14,10 @@ public class CadastroProdutoModel {
     
     private int codigoDoProduto;
     private String descricaoDoProduto;
+    private String UnidadeDeComercializacaoDoProduto;
     private double PrecoDoProduto;
     private int QuantidadeEmEstoqueDoProduto;
-    private String UnidadeDeComercializacaoDoProduto;
+    
     
     
     public CadastroProdutoModel(){
