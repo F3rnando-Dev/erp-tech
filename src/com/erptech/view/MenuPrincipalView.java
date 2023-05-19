@@ -53,10 +53,10 @@ public class MenuPrincipalView extends javax.swing.JFrame {
         setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
 
         jButton5.setBackground(new java.awt.Color(51, 51, 51));
-        jButton5.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jButton5.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jButton5.setForeground(new java.awt.Color(204, 204, 204));
-        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\Downloads\\registro.png")); // NOI18N
-        jButton5.setText("Cadastro");
+        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-producao.png")); // NOI18N
+        jButton5.setText("Produção");
         jButton5.setBorder(null);
         jButton5.setBorderPainted(false);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -66,10 +66,10 @@ public class MenuPrincipalView extends javax.swing.JFrame {
         });
 
         jButton6.setBackground(new java.awt.Color(51, 51, 51));
-        jButton6.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jButton6.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jButton6.setForeground(new java.awt.Color(204, 204, 204));
-        jButton6.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\Downloads\\registro.png")); // NOI18N
-        jButton6.setText("Cadastro");
+        jButton6.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-cadastro.png")); // NOI18N
+        jButton6.setText("Cadastros");
         jButton6.setBorder(null);
         jButton6.setBorderPainted(false);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -79,10 +79,10 @@ public class MenuPrincipalView extends javax.swing.JFrame {
         });
 
         jButton7.setBackground(new java.awt.Color(51, 51, 51));
-        jButton7.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jButton7.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jButton7.setForeground(new java.awt.Color(204, 204, 204));
-        jButton7.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\Downloads\\registro.png")); // NOI18N
-        jButton7.setText("Cadastro");
+        jButton7.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-estoque.png")); // NOI18N
+        jButton7.setText("Estoque");
         jButton7.setBorder(null);
         jButton7.setBorderPainted(false);
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -92,10 +92,10 @@ public class MenuPrincipalView extends javax.swing.JFrame {
         });
 
         jButton8.setBackground(new java.awt.Color(51, 51, 51));
-        jButton8.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jButton8.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jButton8.setForeground(new java.awt.Color(204, 204, 204));
-        jButton8.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\Downloads\\registro.png")); // NOI18N
-        jButton8.setText("Cadastro");
+        jButton8.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-entregas.png")); // NOI18N
+        jButton8.setText("  Entregas");
         jButton8.setBorder(null);
         jButton8.setBorderPainted(false);
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -105,10 +105,11 @@ public class MenuPrincipalView extends javax.swing.JFrame {
         });
 
         jButton9.setBackground(new java.awt.Color(51, 51, 51));
-        jButton9.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jButton9.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jButton9.setForeground(new java.awt.Color(204, 204, 204));
-        jButton9.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\Downloads\\registro.png")); // NOI18N
-        jButton9.setText("Cadastro");
+        jButton9.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-controle-de-qualidade.png")); // NOI18N
+        jButton9.setText("Qualidade");
+        jButton9.setToolTipText("");
         jButton9.setBorder(null);
         jButton9.setBorderPainted(false);
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -118,10 +119,10 @@ public class MenuPrincipalView extends javax.swing.JFrame {
         });
 
         jButton10.setBackground(new java.awt.Color(51, 51, 51));
-        jButton10.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jButton10.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jButton10.setForeground(new java.awt.Color(204, 204, 204));
-        jButton10.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\Downloads\\registro.png")); // NOI18N
-        jButton10.setText("Cadastro");
+        jButton10.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-fiscal.png")); // NOI18N
+        jButton10.setText("Fiscal");
         jButton10.setBorder(null);
         jButton10.setBorderPainted(false);
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -131,10 +132,10 @@ public class MenuPrincipalView extends javax.swing.JFrame {
         });
 
         jButton11.setBackground(new java.awt.Color(51, 51, 51));
-        jButton11.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jButton11.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jButton11.setForeground(new java.awt.Color(204, 204, 204));
-        jButton11.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\Downloads\\registro.png")); // NOI18N
-        jButton11.setText("Cadastro");
+        jButton11.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-compras.png")); // NOI18N
+        jButton11.setText("Compras");
         jButton11.setBorder(null);
         jButton11.setBorderPainted(false);
         jButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -144,10 +145,10 @@ public class MenuPrincipalView extends javax.swing.JFrame {
         });
 
         jButton12.setBackground(new java.awt.Color(51, 51, 51));
-        jButton12.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jButton12.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jButton12.setForeground(new java.awt.Color(204, 204, 204));
-        jButton12.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\Downloads\\registro.png")); // NOI18N
-        jButton12.setText("Cadastro");
+        jButton12.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-relatorios.png")); // NOI18N
+        jButton12.setText("Relatórios");
         jButton12.setBorder(null);
         jButton12.setBorderPainted(false);
         jButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -157,10 +158,10 @@ public class MenuPrincipalView extends javax.swing.JFrame {
         });
 
         jButton13.setBackground(new java.awt.Color(51, 51, 51));
-        jButton13.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jButton13.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jButton13.setForeground(new java.awt.Color(204, 204, 204));
-        jButton13.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\Downloads\\registro.png")); // NOI18N
-        jButton13.setText("Cadastro");
+        jButton13.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-vendas.png")); // NOI18N
+        jButton13.setText("  Vendas");
         jButton13.setBorder(null);
         jButton13.setBorderPainted(false);
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -170,10 +171,10 @@ public class MenuPrincipalView extends javax.swing.JFrame {
         });
 
         jButton14.setBackground(new java.awt.Color(51, 51, 51));
-        jButton14.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jButton14.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jButton14.setForeground(new java.awt.Color(204, 204, 204));
-        jButton14.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\Downloads\\registro.png")); // NOI18N
-        jButton14.setText("Cadastro");
+        jButton14.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-suporte.png")); // NOI18N
+        jButton14.setText("Suporte");
         jButton14.setBorder(null);
         jButton14.setBorderPainted(false);
         jButton14.addActionListener(new java.awt.event.ActionListener() {
