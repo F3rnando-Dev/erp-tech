@@ -6,6 +6,8 @@ package com.erptech.view;
 
 import com.erptech.dao.CadastroProdutoDao;
 import com.erptech.model.CadastroProdutoModel;
+import com.formdev.flatlaf.FlatDarculaLaf;
+import com.formdev.flatlaf.FlatDarkLaf;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -108,8 +110,18 @@ public class CadastroProdutoView extends javax.swing.JFrame {
         btnAtualizar.setMaximumSize(new java.awt.Dimension(72, 23));
         btnAtualizar.setMinimumSize(new java.awt.Dimension(72, 23));
         btnAtualizar.setPreferredSize(new java.awt.Dimension(72, 23));
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizarActionPerformed(evt);
+            }
+        });
 
         btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
 
         tbProdutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -123,7 +135,7 @@ public class CadastroProdutoView extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
@@ -135,6 +147,16 @@ public class CadastroProdutoView extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        tbProdutos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbProdutosMouseClicked(evt);
+            }
+        });
+        tbProdutos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tbProdutosKeyReleased(evt);
             }
         });
         jScrollPane1.setViewportView(tbProdutos);
@@ -234,14 +256,19 @@ public class CadastroProdutoView extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
 
+        int codigo = Integer.parseInt(lblCodigo.getText());
+        double preco = Double.parseDouble(lblPreco.getText());
+        int quantidade = Integer.parseInt(lblEstoque.getText());
+        String unidadeComerc = (String) cbxUnComerc.getSelectedItem();
+        
         try {
             CadastroProdutoModel produto = new CadastroProdutoModel();
             CadastroProdutoDao produtoDao = new CadastroProdutoDao();
-            produto.setCodigoDoProduto(lblCodigo.getSelectionStart());
+            produto.setCodigoDoProduto(codigo);
             produto.setDescricaoDoProduto(lblDescricao.getText());
-            produto.setUnidadeDeComercializacaoDoProduto(cbxUnComerc.getItemAt(1));
-            produto.setPrecoDoProduto(lblPreco.getSelectionStart());
-            produto.setQuantidadeEmEstoqueDoProduto(lblEstoque.getSelectionStart());
+            produto.setUnidadeDeComercializacaoDoProduto(unidadeComerc);
+            produto.setPrecoDoProduto(preco);
+            produto.setQuantidadeEmEstoqueDoProduto(quantidade);
 
             produtoDao.cadastrarProduto(produto);
 
@@ -255,41 +282,109 @@ public class CadastroProdutoView extends javax.swing.JFrame {
 
             listarNaTabela();
         } catch (SQLException exception) {
-            JOptionPane.showMessageDialog(null, "Erro ao cadastrar funcionario!" + exception);
-            System.out.println(exception);
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar produto!" + exception);
         }
 
 
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        
+        if (tbProdutos.getSelectedRow() != -1) {
+            try {
+                CadastroProdutoModel produto = new CadastroProdutoModel();
+                CadastroProdutoDao produtoDao = new CadastroProdutoDao();
+                
+                produto.setCodigoDoProduto((int) tbProdutos.getValueAt(tbProdutos.getSelectedRow(), 0));
+
+                produtoDao.excluirCadastroDeProduto(produto);
+
+                JOptionPane.showMessageDialog(null, "Produto excluido com sucesso!");
+
+                lblCodigo.setText("");
+                lblDescricao.setText("");
+                cbxUnComerc.setSelectedIndex(0);
+                lblPreco.setText("");
+                lblEstoque.setText("");
+
+                listarNaTabela();
+            } catch (Exception exception) {
+                JOptionPane.showMessageDialog(null, "Erro ao excluir cadastro de produto!" + exception);
+            }
+
+        }
+        
+        
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void tbProdutosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbProdutosKeyReleased
+        
+        if (tbProdutos.getSelectedRow() != -1) {
+            lblCodigo.setText(tbProdutos.getValueAt(tbProdutos.getSelectedRow(), 0).toString());
+            lblDescricao.setText(tbProdutos.getValueAt(tbProdutos.getSelectedRow(), 1).toString());
+            cbxUnComerc.setSelectedItem(tbProdutos.getValueAt(tbProdutos.getSelectedRow(), 2).toString());
+            lblPreco.setText(tbProdutos.getValueAt(tbProdutos.getSelectedRow(), 3).toString());
+            lblEstoque.setText(tbProdutos.getValueAt(tbProdutos.getSelectedRow(), 4).toString());
+        }
+              
+    }//GEN-LAST:event_tbProdutosKeyReleased
+
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+        
+        int codigo = Integer.parseInt(lblCodigo.getText());
+        double preco = Double.parseDouble(lblPreco.getText());
+        int quantidade = Integer.parseInt(lblEstoque.getText());
+        
+        if (tbProdutos.getSelectedRow() != -1) {
+            try {
+                CadastroProdutoModel produto = new CadastroProdutoModel();
+                CadastroProdutoDao produtoDao = new CadastroProdutoDao();
+
+                produto.setCodigoDoProduto(codigo);
+                produto.setDescricaoDoProduto(lblDescricao.getText());
+                produto.setUnidadeDeComercializacaoDoProduto((String) cbxUnComerc.getSelectedItem());
+                produto.setPrecoDoProduto(preco);
+                produto.setQuantidadeEmEstoqueDoProduto(quantidade);
+                produto.setCodigoDoProduto(codigo);
+
+                produtoDao.AtualizarCadastroDeProduto(produto);
+
+                JOptionPane.showMessageDialog(null, "Cadastro alterado com sucesso!");
+
+                lblCodigo.setText("");
+                lblDescricao.setText("");
+                cbxUnComerc.setSelectedIndex(0);
+                lblPreco.setText("");
+                lblEstoque.setText("");
+
+                listarNaTabela();
+            } catch (Exception exception) {
+                JOptionPane.showMessageDialog(null, "Erro ao atualizar cadastro de produto!" + exception);
+            }
+        }
+        
+        
+
+        
+    }//GEN-LAST:event_btnAtualizarActionPerformed
+
+    private void tbProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProdutosMouseClicked
+        
+        if (tbProdutos.getSelectedRow() != -1) {
+            lblCodigo.setText(tbProdutos.getValueAt(tbProdutos.getSelectedRow(), 0).toString());
+            lblDescricao.setText(tbProdutos.getValueAt(tbProdutos.getSelectedRow(), 1).toString());
+            cbxUnComerc.setSelectedItem(tbProdutos.getValueAt(tbProdutos.getSelectedRow(), 2).toString());
+            lblPreco.setText(tbProdutos.getValueAt(tbProdutos.getSelectedRow(), 3).toString());
+            lblEstoque.setText(tbProdutos.getValueAt(tbProdutos.getSelectedRow(), 4).toString());
+        }
+        
+    }//GEN-LAST:event_tbProdutosMouseClicked
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastroProdutoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastroProdutoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastroProdutoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastroProdutoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
+        FlatDarkLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
