@@ -2,11 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.erptech.view;
+package com.erptech.modulo.cadastros.view;
 
-import com.erptech.dao.CadastroProdutoDao;
-import com.erptech.model.CadastroProdutoModel;
-import com.formdev.flatlaf.FlatDarculaLaf;
+import com.erptech.modulo.cadastros.dao.CadastroProdutoDao;
+import com.erptech.modulo.cadastros.model.CadastroProdutoModel;
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.sql.SQLException;
 import java.util.logging.Level;

@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.erptech.dao;
+package com.erptech.modulo.cadastros.dao;
 
 import com.erptech.connection.ConnectionFactory;
-import com.erptech.model.CadastroProdutoModel;
+import com.erptech.modulo.cadastros.model.CadastroProdutoModel;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
