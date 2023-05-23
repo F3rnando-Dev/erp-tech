@@ -1,6 +1,5 @@
 package com.erptech.view;
 
-import com.erptech.modulo.cadastros.view.CadastroPrincipalView;
 import com.formdev.flatlaf.FlatDarkLaf;
 import javax.swing.JFrame;
 

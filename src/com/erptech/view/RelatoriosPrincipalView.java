@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.erptech.modulo.cadastros.view;
+package com.erptech.view;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 import javax.swing.JFrame;
@@ -11,12 +11,12 @@ import javax.swing.JFrame;
  *
  * @author ferna
  */
-public class CadastroPrincipalView extends javax.swing.JFrame {
+public class RelatoriosPrincipalView extends javax.swing.JFrame {
 
     /**
      * Creates new form CadastroPrincipalView
      */
-    public CadastroPrincipalView() {
+    public RelatoriosPrincipalView() {
         initComponents();
         setLocationRelativeTo(null);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -34,6 +34,10 @@ public class CadastroPrincipalView extends javax.swing.JFrame {
 
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem14 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
@@ -49,12 +53,26 @@ public class CadastroPrincipalView extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem12 = new javax.swing.JMenuItem();
         jMenuItem13 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem15 = new javax.swing.JMenuItem();
+        jMenu7 = new javax.swing.JMenu();
 
         jMenuItem2.setText("jMenuItem2");
 
         jMenuItem3.setText("jMenuItem3");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jMenuItem14.setText("jMenuItem14");
+
+        jMenu4.setText("jMenu4");
+
+        jMenu6.setText("jMenu6");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Cadastros");
+        setFocusableWindowState(false);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-erptech.png")); // NOI18N
+        jLabel1.setOpaque(true);
 
         jMenu5.setText("Produtos");
 
@@ -91,7 +109,7 @@ public class CadastroPrincipalView extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
-        jMenu1.setText("Fiscal");
+        jMenu1.setText("CFOPs");
 
         jMenuItem12.setText("CFOP");
         jMenu1.add(jMenuItem12);
@@ -101,17 +119,33 @@ public class CadastroPrincipalView extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setText("Vendas");
+
+        jMenuItem15.setText("jMenuItem15");
+        jMenu2.add(jMenuItem15);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu7.setText("Compras");
+        jMenuBar1.add(jMenu7);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 826, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -124,21 +158,28 @@ public class CadastroPrincipalView extends javax.swing.JFrame {
         FlatDarkLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroPrincipalView().setVisible(true);
+                new RelatoriosPrincipalView().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem14;
+    private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
