@@ -5,6 +5,7 @@
 package com.erptech.view;
 
 import com.formdev.flatlaf.FlatDarkLaf;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
@@ -17,6 +18,8 @@ public class RelatoriosPrincipalView extends javax.swing.JFrame {
      * Creates new form CadastroPrincipalView
      */
     public RelatoriosPrincipalView() {
+        ImageIcon icon = new ImageIcon("src/midia/logo-modulo-relatorios.png");
+        setIconImage(icon.getImage());
         initComponents();
         setLocationRelativeTo(null);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -37,7 +40,7 @@ public class RelatoriosPrincipalView extends javax.swing.JFrame {
         jMenuItem14 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
-        jLabel1 = new javax.swing.JLabel();
+        btnVoltar1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
@@ -71,8 +74,13 @@ public class RelatoriosPrincipalView extends javax.swing.JFrame {
         setTitle("Cadastros");
         setFocusableWindowState(false);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-erptech.png")); // NOI18N
-        jLabel1.setOpaque(true);
+        btnVoltar1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\icon-botao-voltar.png")); // NOI18N
+        btnVoltar1.setText("Voltar");
+        btnVoltar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltar1ActionPerformed(evt);
+            }
+        });
 
         jMenu5.setText("Produtos");
 
@@ -137,19 +145,25 @@ public class RelatoriosPrincipalView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(620, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(439, Short.MAX_VALUE)
+                .addComponent(btnVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar1ActionPerformed
+        dispose();
+        MenuPrincipalView menuPrincipalView = new MenuPrincipalView();
+        menuPrincipalView.setVisible(true);
+    }//GEN-LAST:event_btnVoltar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,7 +178,7 @@ public class RelatoriosPrincipalView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnVoltar1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
