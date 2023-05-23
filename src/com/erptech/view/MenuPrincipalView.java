@@ -1,5 +1,6 @@
 package com.erptech.view;
 
+import com.erptech.modulo.cadastros.view.CadastroPrincipalView;
 import com.formdev.flatlaf.FlatDarkLaf;
 import javax.swing.JFrame;
 
@@ -7,7 +8,6 @@ import javax.swing.JFrame;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author ferna
@@ -22,7 +22,7 @@ public class MenuPrincipalView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+
     }
 
     /**
@@ -34,16 +34,16 @@ public class MenuPrincipalView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
+        btnModuloCadastros = new javax.swing.JButton();
+        btnModuloEstoque = new javax.swing.JButton();
+        btnModuloQualidade = new javax.swing.JButton();
+        btnModuloCompras = new javax.swing.JButton();
+        btnModuloVendas = new javax.swing.JButton();
+        btnModuloProducao = new javax.swing.JButton();
+        btnModuloEntregas = new javax.swing.JButton();
+        btnModuloFiscal = new javax.swing.JButton();
+        btnModuloRelatórios = new javax.swing.JButton();
+        btnModuloSuporte = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ERP TECH");
@@ -52,134 +52,134 @@ public class MenuPrincipalView extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
 
-        jButton5.setBackground(new java.awt.Color(51, 51, 51));
-        jButton5.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(204, 204, 204));
-        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-producao.png")); // NOI18N
-        jButton5.setText("Produção");
-        jButton5.setBorder(null);
-        jButton5.setBorderPainted(false);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnModuloCadastros.setBackground(new java.awt.Color(51, 51, 51));
+        btnModuloCadastros.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        btnModuloCadastros.setForeground(new java.awt.Color(204, 204, 204));
+        btnModuloCadastros.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-cadastro.png")); // NOI18N
+        btnModuloCadastros.setText("Cadastros");
+        btnModuloCadastros.setBorder(null);
+        btnModuloCadastros.setBorderPainted(false);
+        btnModuloCadastros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnModuloCadastrosActionPerformed(evt);
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(51, 51, 51));
-        jButton6.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(204, 204, 204));
-        jButton6.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-cadastro.png")); // NOI18N
-        jButton6.setText("Cadastros");
-        jButton6.setBorder(null);
-        jButton6.setBorderPainted(false);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnModuloEstoque.setBackground(new java.awt.Color(51, 51, 51));
+        btnModuloEstoque.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        btnModuloEstoque.setForeground(new java.awt.Color(204, 204, 204));
+        btnModuloEstoque.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-estoque.png")); // NOI18N
+        btnModuloEstoque.setText("Estoque");
+        btnModuloEstoque.setBorder(null);
+        btnModuloEstoque.setBorderPainted(false);
+        btnModuloEstoque.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnModuloEstoqueActionPerformed(evt);
             }
         });
 
-        jButton7.setBackground(new java.awt.Color(51, 51, 51));
-        jButton7.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(204, 204, 204));
-        jButton7.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-estoque.png")); // NOI18N
-        jButton7.setText("Estoque");
-        jButton7.setBorder(null);
-        jButton7.setBorderPainted(false);
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        btnModuloQualidade.setBackground(new java.awt.Color(51, 51, 51));
+        btnModuloQualidade.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        btnModuloQualidade.setForeground(new java.awt.Color(204, 204, 204));
+        btnModuloQualidade.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-controle-de-qualidade.png")); // NOI18N
+        btnModuloQualidade.setText("Qualidade");
+        btnModuloQualidade.setToolTipText("");
+        btnModuloQualidade.setBorder(null);
+        btnModuloQualidade.setBorderPainted(false);
+        btnModuloQualidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                btnModuloQualidadeActionPerformed(evt);
             }
         });
 
-        jButton8.setBackground(new java.awt.Color(51, 51, 51));
-        jButton8.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(204, 204, 204));
-        jButton8.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-entregas.png")); // NOI18N
-        jButton8.setText("  Entregas");
-        jButton8.setBorder(null);
-        jButton8.setBorderPainted(false);
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        btnModuloCompras.setBackground(new java.awt.Color(51, 51, 51));
+        btnModuloCompras.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        btnModuloCompras.setForeground(new java.awt.Color(204, 204, 204));
+        btnModuloCompras.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-compras.png")); // NOI18N
+        btnModuloCompras.setText("Compras");
+        btnModuloCompras.setBorder(null);
+        btnModuloCompras.setBorderPainted(false);
+        btnModuloCompras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                btnModuloComprasActionPerformed(evt);
             }
         });
 
-        jButton9.setBackground(new java.awt.Color(51, 51, 51));
-        jButton9.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(204, 204, 204));
-        jButton9.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-controle-de-qualidade.png")); // NOI18N
-        jButton9.setText("Qualidade");
-        jButton9.setToolTipText("");
-        jButton9.setBorder(null);
-        jButton9.setBorderPainted(false);
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        btnModuloVendas.setBackground(new java.awt.Color(51, 51, 51));
+        btnModuloVendas.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        btnModuloVendas.setForeground(new java.awt.Color(204, 204, 204));
+        btnModuloVendas.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-vendas.png")); // NOI18N
+        btnModuloVendas.setText("  Vendas");
+        btnModuloVendas.setBorder(null);
+        btnModuloVendas.setBorderPainted(false);
+        btnModuloVendas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                btnModuloVendasActionPerformed(evt);
             }
         });
 
-        jButton10.setBackground(new java.awt.Color(51, 51, 51));
-        jButton10.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        jButton10.setForeground(new java.awt.Color(204, 204, 204));
-        jButton10.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-fiscal.png")); // NOI18N
-        jButton10.setText("Fiscal");
-        jButton10.setBorder(null);
-        jButton10.setBorderPainted(false);
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        btnModuloProducao.setBackground(new java.awt.Color(51, 51, 51));
+        btnModuloProducao.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        btnModuloProducao.setForeground(new java.awt.Color(204, 204, 204));
+        btnModuloProducao.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-producao.png")); // NOI18N
+        btnModuloProducao.setText("Produção");
+        btnModuloProducao.setBorder(null);
+        btnModuloProducao.setBorderPainted(false);
+        btnModuloProducao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                btnModuloProducaoActionPerformed(evt);
             }
         });
 
-        jButton11.setBackground(new java.awt.Color(51, 51, 51));
-        jButton11.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        jButton11.setForeground(new java.awt.Color(204, 204, 204));
-        jButton11.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-compras.png")); // NOI18N
-        jButton11.setText("Compras");
-        jButton11.setBorder(null);
-        jButton11.setBorderPainted(false);
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        btnModuloEntregas.setBackground(new java.awt.Color(51, 51, 51));
+        btnModuloEntregas.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        btnModuloEntregas.setForeground(new java.awt.Color(204, 204, 204));
+        btnModuloEntregas.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-entregas.png")); // NOI18N
+        btnModuloEntregas.setText("  Entregas");
+        btnModuloEntregas.setBorder(null);
+        btnModuloEntregas.setBorderPainted(false);
+        btnModuloEntregas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                btnModuloEntregasActionPerformed(evt);
             }
         });
 
-        jButton12.setBackground(new java.awt.Color(51, 51, 51));
-        jButton12.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        jButton12.setForeground(new java.awt.Color(204, 204, 204));
-        jButton12.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-relatorios.png")); // NOI18N
-        jButton12.setText("Relatórios");
-        jButton12.setBorder(null);
-        jButton12.setBorderPainted(false);
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        btnModuloFiscal.setBackground(new java.awt.Color(51, 51, 51));
+        btnModuloFiscal.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        btnModuloFiscal.setForeground(new java.awt.Color(204, 204, 204));
+        btnModuloFiscal.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-fiscal.png")); // NOI18N
+        btnModuloFiscal.setText("Fiscal");
+        btnModuloFiscal.setBorder(null);
+        btnModuloFiscal.setBorderPainted(false);
+        btnModuloFiscal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                btnModuloFiscalActionPerformed(evt);
             }
         });
 
-        jButton13.setBackground(new java.awt.Color(51, 51, 51));
-        jButton13.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        jButton13.setForeground(new java.awt.Color(204, 204, 204));
-        jButton13.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-vendas.png")); // NOI18N
-        jButton13.setText("  Vendas");
-        jButton13.setBorder(null);
-        jButton13.setBorderPainted(false);
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
+        btnModuloRelatórios.setBackground(new java.awt.Color(51, 51, 51));
+        btnModuloRelatórios.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        btnModuloRelatórios.setForeground(new java.awt.Color(204, 204, 204));
+        btnModuloRelatórios.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-relatorios.png")); // NOI18N
+        btnModuloRelatórios.setText("Relatórios");
+        btnModuloRelatórios.setBorder(null);
+        btnModuloRelatórios.setBorderPainted(false);
+        btnModuloRelatórios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
+                btnModuloRelatóriosActionPerformed(evt);
             }
         });
 
-        jButton14.setBackground(new java.awt.Color(51, 51, 51));
-        jButton14.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        jButton14.setForeground(new java.awt.Color(204, 204, 204));
-        jButton14.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-suporte.png")); // NOI18N
-        jButton14.setText("Suporte");
-        jButton14.setBorder(null);
-        jButton14.setBorderPainted(false);
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
+        btnModuloSuporte.setBackground(new java.awt.Color(51, 51, 51));
+        btnModuloSuporte.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        btnModuloSuporte.setForeground(new java.awt.Color(204, 204, 204));
+        btnModuloSuporte.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\logo-modulo-suporte.png")); // NOI18N
+        btnModuloSuporte.setText("Suporte");
+        btnModuloSuporte.setBorder(null);
+        btnModuloSuporte.setBorderPainted(false);
+        btnModuloSuporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
+                btnModuloSuporteActionPerformed(evt);
             }
         });
 
@@ -189,92 +189,95 @@ public class MenuPrincipalView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE))
+                    .addComponent(btnModuloCadastros, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
+                    .addComponent(btnModuloProducao, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnModuloEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnModuloEntregas, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnModuloQualidade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnModuloFiscal, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnModuloCompras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnModuloRelatórios, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnModuloVendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnModuloSuporte, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(61, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnModuloCadastros, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnModuloProducao, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnModuloEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnModuloQualidade, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnModuloEntregas, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnModuloFiscal, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnModuloCompras, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnModuloVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE)
-                    .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(btnModuloRelatórios, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE)
+                    .addComponent(btnModuloSuporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnModuloProducaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloProducaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnModuloProducaoActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void btnModuloCadastrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloCadastrosActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+        CadastroPrincipalView cadastroPrincipalView = new CadastroPrincipalView();
+        cadastroPrincipalView.setVisible(true);
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_btnModuloCadastrosActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void btnModuloEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloEstoqueActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_btnModuloEstoqueActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void btnModuloEntregasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloEntregasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_btnModuloEntregasActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+    private void btnModuloQualidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloQualidadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
+    }//GEN-LAST:event_btnModuloQualidadeActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+    private void btnModuloFiscalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloFiscalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
+    }//GEN-LAST:event_btnModuloFiscalActionPerformed
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+    private void btnModuloComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloComprasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton13ActionPerformed
+    }//GEN-LAST:event_btnModuloComprasActionPerformed
 
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+    private void btnModuloRelatóriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloRelatóriosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton14ActionPerformed
+    }//GEN-LAST:event_btnModuloRelatóriosActionPerformed
+
+    private void btnModuloVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloVendasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnModuloVendasActionPerformed
+
+    private void btnModuloSuporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloSuporteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnModuloSuporteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -289,15 +292,15 @@ public class MenuPrincipalView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton btnModuloCadastros;
+    private javax.swing.JButton btnModuloCompras;
+    private javax.swing.JButton btnModuloEntregas;
+    private javax.swing.JButton btnModuloEstoque;
+    private javax.swing.JButton btnModuloFiscal;
+    private javax.swing.JButton btnModuloProducao;
+    private javax.swing.JButton btnModuloQualidade;
+    private javax.swing.JButton btnModuloRelatórios;
+    private javax.swing.JButton btnModuloSuporte;
+    private javax.swing.JButton btnModuloVendas;
     // End of variables declaration//GEN-END:variables
 }

@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.erptech.view;
+package com.erptech.modulo.cadastros.view;
 
-import com.erptech.dao.CadastroFuncionarioDao;
-import com.erptech.model.CadastroFuncionarioModel;
+import com.erptech.modulo.cadastros.dao.CadastroFuncionarioDao;
+import com.erptech.modulo.cadastros.model.CadastroFuncionarioModel;
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -62,7 +62,6 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de funcionários");
         setName("viewCadastroFuncionario"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(900, 400));
 
         txtMatricula.setText("Matricula:");
 
