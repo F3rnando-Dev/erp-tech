@@ -24,8 +24,8 @@ O ERP Tech oferece uma ampla gama de recursos e funcionalidades para ajudar as e
 ## Tecnologias Utilizadas
 O projeto ERP Tech utiliza as seguintes tecnologias:
 
-Linguagem de programação: Java
-Framework: Swing
+Linguagem de programação: Java 11+
+Framework: Java Swing
 Banco de dados: Mysql
 Frontend: Flatlaf Theme
 Controle de Versão: Git
