@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class CadastroProdutoModel {
     
     private int codigoDoProduto;
+    private String marcaDoProduto;
     private String descricaoDoProduto;
     private String UnidadeDeComercializacaoDoProduto;
     private double PrecoDoProduto;
@@ -24,8 +25,9 @@ public class CadastroProdutoModel {
         
     }
 
-    public CadastroProdutoModel(int codigoDoProduto, String descricaoDoProduto, double PrecoDoProduto, int QuantidadeEmEstoqueDoProduto, String UnidadeDeComercializacaoDoProduto) {
+    public CadastroProdutoModel(int codigoDoProduto, String descricaoDoProduto, String marcaDoProduto, double PrecoDoProduto, int QuantidadeEmEstoqueDoProduto, String UnidadeDeComercializacaoDoProduto) {
         this.codigoDoProduto = codigoDoProduto;
+        this.marcaDoProduto = marcaDoProduto;
         this.descricaoDoProduto = descricaoDoProduto;
         this.PrecoDoProduto = PrecoDoProduto;
         this.QuantidadeEmEstoqueDoProduto = QuantidadeEmEstoqueDoProduto;
@@ -72,9 +74,17 @@ public class CadastroProdutoModel {
         this.UnidadeDeComercializacaoDoProduto = UnidadeDeComercializacaoDoProduto;
     }
 
+    public String getMarcaDoProduto() {
+        return marcaDoProduto;
+    }
+
+    public void setMarcaDoProduto(String marcaDoProduto) {
+        this.marcaDoProduto = marcaDoProduto;
+    }
+
     @Override
     public String toString() {
-        return "CadastroProdutoModel{" + "codigoDoProduto=" + codigoDoProduto + ", descricaoDoProduto=" + descricaoDoProduto + ", PrecoDoProduto=" + PrecoDoProduto + ", QuantidadeEmEstoqueDoProduto=" + QuantidadeEmEstoqueDoProduto + ", UnidadeDeComercializacaoDoProduto=" + UnidadeDeComercializacaoDoProduto + '}';
+        return "CadastroProdutoModel{" + "codigoDoProduto=" + codigoDoProduto + ", marcaDoProduto=" + marcaDoProduto + ", descricaoDoProduto=" + descricaoDoProduto + ", UnidadeDeComercializacaoDoProduto=" + UnidadeDeComercializacaoDoProduto + ", PrecoDoProduto=" + PrecoDoProduto + ", QuantidadeEmEstoqueDoProduto=" + QuantidadeEmEstoqueDoProduto + '}';
     }
     
     public ArrayList<CadastroProdutoModel> getProdutos(){

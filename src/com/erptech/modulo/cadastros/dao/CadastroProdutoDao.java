@@ -24,13 +24,14 @@ public class CadastroProdutoDao {
         PreparedStatement stmt = null;
 
         try {
-            stmt = conn.prepareStatement("INSERT INTO erptech.cadastro_produto (codigo_produto, descricao_produto,"
-                    + " unidade_comercializacao_produto, preco_produto, quantidade_produto) VALUES (?, ?, ?, ?, ?)");
+            stmt = conn.prepareStatement("INSERT INTO erptech.cadastro_produto (codigo_produto, marca_produto, descricao_produto,"
+                    + " unidade_comercializacao_produto, preco_produto, quantidade_produto) VALUES (?, ?, ?, ?, ?, ?)");
             stmt.setInt(1, produto.getCodigoDoProduto());
             stmt.setString(2, produto.getDescricaoDoProduto());
-            stmt.setString(3, produto.getUnidadeDeComercializacaoDoProduto());
-            stmt.setDouble(4, produto.getPrecoDoProduto());
-            stmt.setInt(5, produto.getQuantidadeEmEstoqueDoProduto());
+            stmt.setString(3, produto.getMarcaDoProduto());
+            stmt.setString(4, produto.getUnidadeDeComercializacaoDoProduto());
+            stmt.setDouble(5, produto.getPrecoDoProduto());
+            stmt.setInt(6, produto.getQuantidadeEmEstoqueDoProduto());
 
             stmt.executeUpdate();
         } catch (SQLException ex) {
@@ -55,6 +56,7 @@ public class CadastroProdutoDao {
                 CadastroProdutoModel produto = new CadastroProdutoModel();
 
                 produto.setCodigoDoProduto(rs.getInt("CODIGO_PRODUTO"));
+                produto.setMarcaDoProduto(rs.getString("MARCA_PRODUTO"));
                 produto.setDescricaoDoProduto(rs.getString("DESCRICAO_PRODUTO"));
                 produto.setUnidadeDeComercializacaoDoProduto(rs.getString("UNIDADE_COMERCIALIZACAO_PRODUTO"));
                 produto.setPrecoDoProduto(rs.getDouble("PRECO_PRODUTO"));
@@ -93,14 +95,16 @@ public class CadastroProdutoDao {
         PreparedStatement stmt = null;
 
         try {
-            stmt = conn.prepareStatement("UPDATE erptech.cadastro_produto SET codigo_produto = ?, descricao_produto = ?,"
+            stmt = conn.prepareStatement("UPDATE erptech.cadastro_produto SET codigo_produto = ?, marca_produto = ?, descricao_produto = ?,"
                     + " unidade_comercializacao_produto = ?, preco_produto = ?, quantidade_produto = ? WHERE codigo_produto = ?");
             stmt.setInt(1, produto.getCodigoDoProduto());
-            stmt.setString(2, produto.getDescricaoDoProduto());
-            stmt.setString(3, produto.getUnidadeDeComercializacaoDoProduto());
-            stmt.setDouble(4, produto.getPrecoDoProduto());
-            stmt.setInt(5, produto.getQuantidadeEmEstoqueDoProduto());
-            stmt.setInt(6, produto.getCodigoDoProduto());
+            stmt.setString(2, produto.getMarcaDoProduto());
+            stmt.setString(3, produto.getDescricaoDoProduto());
+            stmt.setString(4, produto.getUnidadeDeComercializacaoDoProduto());
+            stmt.setDouble(5, produto.getPrecoDoProduto());
+            stmt.setInt(6, produto.getQuantidadeEmEstoqueDoProduto());
+            
+            stmt.setInt(7, produto.getCodigoDoProduto());
 
             stmt.executeUpdate();
 

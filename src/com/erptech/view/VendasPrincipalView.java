@@ -239,7 +239,6 @@ public class VendasPrincipalView extends javax.swing.JFrame {
         VendasPrincipalView frame = new VendasPrincipalView();
         JFileChooser fileChooser = new JFileChooser();
 
-        // Define o diretório inicial
         fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
 
         int result = fileChooser.showOpenDialog(frame);
