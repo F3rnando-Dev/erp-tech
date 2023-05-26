@@ -4,7 +4,11 @@
  */
 package com.erptech.view;
 
+import com.erptech.modulo.cadastros.view.CadastroFuncionarioView;
 import com.formdev.flatlaf.FlatDarkLaf;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
@@ -35,19 +39,19 @@ public class CadastrosPrincipalView extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         btnVoltar = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        menuBar = new javax.swing.JMenuBar();
+        menuProdutos = new javax.swing.JMenu();
+        itemProdutos = new javax.swing.JMenuItem();
+        itemFuncionrios = new javax.swing.JMenuItem();
+        itemUsuarios = new javax.swing.JMenuItem();
+        menuFuncionarios = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
+        menuFiscal = new javax.swing.JMenu();
         jMenuItem12 = new javax.swing.JMenuItem();
         jMenuItem13 = new javax.swing.JMenuItem();
 
@@ -70,52 +74,57 @@ public class CadastrosPrincipalView extends javax.swing.JFrame {
             }
         });
 
-        jMenu5.setText("Produtos");
+        menuProdutos.setText("Produtos");
 
-        jMenuItem7.setText("jMenuItem7");
-        jMenu5.add(jMenuItem7);
+        itemProdutos.setText("Produtos");
+        menuProdutos.add(itemProdutos);
 
-        jMenuItem8.setText("jMenuItem8");
-        jMenu5.add(jMenuItem8);
+        itemFuncionrios.setText("Funcionários");
+        itemFuncionrios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemFuncionriosActionPerformed(evt);
+            }
+        });
+        menuProdutos.add(itemFuncionrios);
 
-        jMenuItem10.setText("jMenuItem10");
-        jMenu5.add(jMenuItem10);
+        itemUsuarios.setText("Usuários");
+        menuProdutos.add(itemUsuarios);
 
-        jMenuBar1.add(jMenu5);
+        menuBar.add(menuProdutos);
 
-        jMenu3.setText("Funcionários");
+        menuFuncionarios.setText("Funcionários");
 
         jMenuItem1.setText("jMenuItem1");
-        jMenu3.add(jMenuItem1);
+        menuFuncionarios.add(jMenuItem1);
 
         jMenuItem4.setText("jMenuItem4");
-        jMenu3.add(jMenuItem4);
+        menuFuncionarios.add(jMenuItem4);
 
         jMenuItem5.setText("jMenuItem5");
-        jMenu3.add(jMenuItem5);
+        menuFuncionarios.add(jMenuItem5);
 
         jMenuItem6.setText("jMenuItem6");
-        jMenu3.add(jMenuItem6);
+        menuFuncionarios.add(jMenuItem6);
 
         jMenuItem9.setText("jMenuItem9");
-        jMenu3.add(jMenuItem9);
+        menuFuncionarios.add(jMenuItem9);
 
         jMenuItem11.setText("jMenuItem11");
-        jMenu3.add(jMenuItem11);
+        menuFuncionarios.add(jMenuItem11);
 
-        jMenuBar1.add(jMenu3);
+        menuBar.add(menuFuncionarios);
 
-        jMenu1.setText("Fiscal");
+        menuFiscal.setText("Fiscal");
 
         jMenuItem12.setText("CFOP");
-        jMenu1.add(jMenuItem12);
+        menuFiscal.add(jMenuItem12);
 
         jMenuItem13.setText("NCM");
-        jMenu1.add(jMenuItem13);
+        menuFiscal.add(jMenuItem13);
 
-        jMenuBar1.add(jMenu1);
+        menuBar.add(menuFiscal);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -143,10 +152,23 @@ public class CadastrosPrincipalView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        dispose();
+        
         MenuPrincipalView menuPrincipalView = new MenuPrincipalView();
         menuPrincipalView.setVisible(true);
+        dispose();
+        
     }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void itemFuncionriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemFuncionriosActionPerformed
+        
+        try {
+            CadastroFuncionarioView funcionarioView = new CadastroFuncionarioView();
+            funcionarioView.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastrosPrincipalView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_itemFuncionriosActionPerformed
 
     
     public static void main(String args[]) {
@@ -160,13 +182,11 @@ public class CadastrosPrincipalView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JMenuItem itemFuncionrios;
+    private javax.swing.JMenuItem itemProdutos;
+    private javax.swing.JMenuItem itemUsuarios;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
@@ -175,8 +195,10 @@ public class CadastrosPrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenu menuFiscal;
+    private javax.swing.JMenu menuFuncionarios;
+    private javax.swing.JMenu menuProdutos;
     // End of variables declaration//GEN-END:variables
 }
