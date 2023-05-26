@@ -138,9 +138,10 @@ public class ProducaoPrincipalView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar1ActionPerformed
-        dispose();
+        
         MenuPrincipalView menuPrincipalView = new MenuPrincipalView();
         menuPrincipalView.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnVoltar1ActionPerformed
 
     
