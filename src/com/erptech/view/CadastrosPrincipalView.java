@@ -5,6 +5,7 @@
 package com.erptech.view;
 
 import com.erptech.modulo.cadastros.view.CadastroFuncionarioView;
+import com.erptech.modulo.cadastros.view.CadastroProdutoView;
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -24,7 +25,7 @@ public class CadastrosPrincipalView extends javax.swing.JFrame {
     public CadastrosPrincipalView() {
         ImageIcon icon = new ImageIcon("src/midia/logo-modulo-cadastro.png");
         setIconImage(icon.getImage());
-        
+
         initComponents();
         setLocationRelativeTo(null);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -77,6 +78,11 @@ public class CadastrosPrincipalView extends javax.swing.JFrame {
         menuProdutos.setText("Produtos");
 
         itemProdutos.setText("Produtos");
+        itemProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemProdutosActionPerformed(evt);
+            }
+        });
         menuProdutos.add(itemProdutos);
 
         itemFuncionrios.setText("Funcionários");
@@ -143,7 +149,7 @@ public class CadastrosPrincipalView extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(488, Short.MAX_VALUE)
                 .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -152,25 +158,34 @@ public class CadastrosPrincipalView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        
+
         MenuPrincipalView menuPrincipalView = new MenuPrincipalView();
         menuPrincipalView.setVisible(true);
         dispose();
-        
+
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void itemFuncionriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemFuncionriosActionPerformed
-        
+
         try {
             CadastroFuncionarioView funcionarioView = new CadastroFuncionarioView();
             funcionarioView.setVisible(true);
         } catch (SQLException ex) {
             Logger.getLogger(CadastrosPrincipalView.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_itemFuncionriosActionPerformed
 
-    
+    private void itemProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemProdutosActionPerformed
+
+        try {
+            CadastroProdutoView produtosView = new CadastroProdutoView();
+            produtosView.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastrosPrincipalView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_itemProdutosActionPerformed
+
     public static void main(String args[]) {
         FlatDarkLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
