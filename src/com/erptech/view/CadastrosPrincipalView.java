@@ -6,6 +6,7 @@ package com.erptech.view;
 
 import com.erptech.modulo.cadastros.view.CadastroFuncionarioView;
 import com.erptech.modulo.cadastros.view.CadastroProdutoView;
+import com.erptech.modulo.cadastros.view.CadastroUsuario;
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -94,6 +95,11 @@ public class CadastrosPrincipalView extends javax.swing.JFrame {
         menuProdutos.add(itemFuncionrios);
 
         itemUsuarios.setText("Usuários");
+        itemUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemUsuariosActionPerformed(evt);
+            }
+        });
         menuProdutos.add(itemUsuarios);
 
         menuBar.add(menuProdutos);
@@ -185,6 +191,13 @@ public class CadastrosPrincipalView extends javax.swing.JFrame {
             Logger.getLogger(CadastrosPrincipalView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_itemProdutosActionPerformed
+
+    private void itemUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemUsuariosActionPerformed
+        
+        CadastroUsuario usuarioView = new CadastroUsuario();
+        usuarioView.setVisible(true);
+        
+    }//GEN-LAST:event_itemUsuariosActionPerformed
 
     public static void main(String args[]) {
         FlatDarkLaf.setup();
