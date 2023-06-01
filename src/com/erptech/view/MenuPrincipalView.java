@@ -234,16 +234,13 @@ public class MenuPrincipalView extends javax.swing.JFrame {
 
     private void btnModuloProducaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloProducaoActionPerformed
         
-        dispose();
         ProducaoPrincipalView producaoPrincipalView = new ProducaoPrincipalView();
         producaoPrincipalView.setVisible(true);
-        
         
     }//GEN-LAST:event_btnModuloProducaoActionPerformed
 
     private void btnModuloCadastrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloCadastrosActionPerformed
 
-        dispose();
         CadastrosPrincipalView cadastroPrincipalView = new CadastrosPrincipalView();
         cadastroPrincipalView.setVisible(true);
 
@@ -251,7 +248,6 @@ public class MenuPrincipalView extends javax.swing.JFrame {
 
     private void btnModuloEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloEstoqueActionPerformed
         
-        dispose();
         EstoquePrincipalView estoquePrincipalView = new EstoquePrincipalView();
         estoquePrincipalView.setVisible(true);
         
@@ -259,7 +255,6 @@ public class MenuPrincipalView extends javax.swing.JFrame {
 
     private void btnModuloEntregasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloEntregasActionPerformed
         
-        dispose();
         EntregasPrincipalView entregasPrincipalView = new EntregasPrincipalView();
         entregasPrincipalView.setVisible(true);
         
@@ -267,7 +262,6 @@ public class MenuPrincipalView extends javax.swing.JFrame {
 
     private void btnModuloQualidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloQualidadeActionPerformed
         
-        dispose();
         QualidadePrincipalView qualidadePrincipalView = new QualidadePrincipalView();
         qualidadePrincipalView.setVisible(true);
         
@@ -275,7 +269,6 @@ public class MenuPrincipalView extends javax.swing.JFrame {
 
     private void btnModuloFiscalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloFiscalActionPerformed
         
-        dispose();
         FiscalPrincipalView fiscalPrincipalView = new FiscalPrincipalView();
         fiscalPrincipalView.setVisible(true);
         
@@ -283,7 +276,6 @@ public class MenuPrincipalView extends javax.swing.JFrame {
 
     private void btnModuloComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloComprasActionPerformed
         
-        dispose();
         ComprasPrincipalView comprasPrincipalView = new ComprasPrincipalView();
         comprasPrincipalView.setVisible(true);
         
@@ -291,7 +283,6 @@ public class MenuPrincipalView extends javax.swing.JFrame {
 
     private void btnModuloRelatóriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloRelatóriosActionPerformed
         
-        dispose();
         RelatoriosPrincipalView relatorioPrincipalView = new RelatoriosPrincipalView();
         relatorioPrincipalView.setVisible(true);
         
@@ -299,7 +290,6 @@ public class MenuPrincipalView extends javax.swing.JFrame {
 
     private void btnModuloVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloVendasActionPerformed
         
-        dispose();
         VendasPrincipalView vendasPrincipalView = new VendasPrincipalView();
         vendasPrincipalView.setVisible(true);
         
@@ -307,7 +297,6 @@ public class MenuPrincipalView extends javax.swing.JFrame {
 
     private void btnModuloSuporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloSuporteActionPerformed
         
-        dispose();
         SuportePrincipalView suportePrincipalView = new SuportePrincipalView();
         suportePrincipalView.setVisible(true);
         
