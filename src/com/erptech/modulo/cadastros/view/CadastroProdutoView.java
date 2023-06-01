@@ -6,6 +6,7 @@ import com.formdev.flatlaf.FlatDarkLaf;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -22,6 +23,7 @@ public class CadastroProdutoView extends javax.swing.JFrame {
         initComponents();
         listarNaTabela();
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     public void listarNaTabela() throws SQLException {
@@ -67,7 +69,7 @@ public class CadastroProdutoView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         lblMarca = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de produtos");
 
         txtCodigo.setText("Código:");

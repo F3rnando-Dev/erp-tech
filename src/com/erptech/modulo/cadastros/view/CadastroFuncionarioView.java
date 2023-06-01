@@ -10,6 +10,7 @@ import com.formdev.flatlaf.FlatDarkLaf;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -23,6 +24,7 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
         initComponents();
         listarNaTabela();
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     public void listarNaTabela() throws SQLException {
@@ -59,7 +61,7 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
         tbFuncionarios = new javax.swing.JScrollPane();
         tbFuncionario = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de funcionários");
         setName("viewCadastroFuncionario"); // NOI18N
 
