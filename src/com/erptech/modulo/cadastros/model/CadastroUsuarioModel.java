@@ -28,6 +28,11 @@ public class CadastroUsuarioModel {
     private boolean acessoRelatorios;
     private boolean acessoSuporte;
 
+    public CadastroUsuarioModel() {
+        
+        
+    }
+    
     public CadastroUsuarioModel(String credencial, String nome, String senha, String confirmarSenha, String email, String observacao, boolean acessoCadastros, boolean acessoEstoque, boolean acessoQualidade, boolean acessoCompras, boolean acessoVendas, boolean acessoProducao, boolean acessoEntregas, boolean acessoFiscal, boolean acessoRelatorios, boolean acessoSuporte) {
         this.credencial = credencial;
         this.nome = nome;

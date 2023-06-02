@@ -4,9 +4,12 @@
  */
 package com.erptech.modulo.cadastros.view;
 
+import com.erptech.modulo.cadastros.dao.CadastroUsuarioDao;
+import com.erptech.modulo.cadastros.model.CadastroUsuarioModel;
 import com.erptech.view.MenuPrincipalView;
 import com.formdev.flatlaf.FlatDarkLaf;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,7 +20,6 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
     public CadastroUsuarioView() {
         initComponents();
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     @SuppressWarnings("unchecked")
@@ -101,10 +103,25 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
         ckbSuporte.setText("Suporte");
 
         btnNovo.setText("Novo");
+        btnNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoActionPerformed(evt);
+            }
+        });
 
         btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         btnAtualizar.setText("Atualizar");
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizarActionPerformed(evt);
+            }
+        });
 
         btnExcluir.setText("Excluir");
 
@@ -243,9 +260,105 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
 
         dispose();
         MenuPrincipalView menuPrincipalView = new MenuPrincipalView();
-        menuPrincipalView.setVisible(true);        
-        
+        menuPrincipalView.setVisible(true);
+
     }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
+        lblCredencial.setText("");
+        lblNome.setText("");
+        lblSenha.setText("");
+        lblConfirme.setText("");
+        lblDescricao.setText("");
+        lblEmail.setText("");
+        ckbCadastros.setSelected(false);
+        ckbCompras.setSelected(false);
+        ckbEntregas.setSelected(false);
+        ckbEstoque.setSelected(false);
+        ckbFiscal.setSelected(false);
+        ckbProducao.setSelected(false);
+        ckbQualidade.setSelected(false);
+        ckbRelatorios.setSelected(false);
+        ckbSuporte.setSelected(false);
+        ckbVendas.setSelected(false);
+    }//GEN-LAST:event_btnNovoActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        try {
+            CadastroUsuarioModel usuario = new CadastroUsuarioModel();
+            CadastroUsuarioDao usuarioDao = new CadastroUsuarioDao();
+            usuario.setCredencial(lblCredencial.getText());
+            usuario.setNome(lblNome.getText());
+            usuario.setSenha(lblSenha.getText());
+            usuario.setConfirmarSenha(lblConfirme.getText());
+            usuario.setEmail(lblEmail.getText());
+            usuario.setObservacao(lblDescricao.getText());
+
+            usuario.setAcessoCadastros(ckbCadastros.isSelected());
+            usuario.setAcessoCompras(ckbCompras.isSelected());
+            usuario.setAcessoEntregas(ckbEntregas.isSelected());
+            usuario.setAcessoEstoque(ckbEstoque.isSelected());
+            usuario.setAcessoFiscal(ckbFiscal.isSelected());
+            usuario.setAcessoProducao(ckbProducao.isSelected());
+            usuario.setAcessoQualidade(ckbQualidade.isSelected());
+            usuario.setAcessoRelatorios(ckbRelatorios.isSelected());
+            usuario.setAcessoSuporte(ckbSuporte.isSelected());
+            usuario.setAcessoVendas(ckbVendas.isSelected());
+
+            if (usuario.getSenha().equals(usuario.getConfirmarSenha())) {
+                usuarioDao.cadastrarUsuario(usuario);
+
+                JOptionPane.showMessageDialog(null, "Funcionario cadastrado!");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Senhas divergentes!!");
+            }
+
+        } catch (Exception exception) {
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar funcionario!" + exception);
+        }
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+
+        try {
+            CadastroUsuarioModel usuario = new CadastroUsuarioModel();
+            CadastroUsuarioDao usuarioDao = new CadastroUsuarioDao();
+
+            usuario.setCredencial(lblCredencial.getText());
+            usuario.setNome(lblNome.getText());
+            usuario.setSenha(lblSenha.getText());
+            usuario.setConfirmarSenha(lblConfirme.getText());
+            usuario.setEmail(lblEmail.getText());
+            usuario.setObservacao(lblDescricao.getText());
+
+            usuario.setAcessoCadastros(ckbCadastros.isSelected());
+            usuario.setAcessoCompras(ckbCompras.isSelected());
+            usuario.setAcessoEntregas(ckbEntregas.isSelected());
+            usuario.setAcessoEstoque(ckbEstoque.isSelected());
+            usuario.setAcessoFiscal(ckbFiscal.isSelected());
+            usuario.setAcessoProducao(ckbProducao.isSelected());
+            usuario.setAcessoQualidade(ckbQualidade.isSelected());
+            usuario.setAcessoRelatorios(ckbRelatorios.isSelected());
+            usuario.setAcessoSuporte(ckbSuporte.isSelected());
+            usuario.setAcessoVendas(ckbVendas.isSelected());
+
+            usuarioDao.AtualizarCadastroDeUsuario(usuario);
+
+            if (usuario.getSenha().equals(usuario.getConfirmarSenha())) {
+                usuarioDao.cadastrarUsuario(usuario);
+
+                JOptionPane.showMessageDialog(null, "Cadastro alterado com sucesso!");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Senhas divergentes!!");
+            }
+
+        } catch (Exception exception) {
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar cadastro de funcionario!" + exception);
+        }
+
+    }//GEN-LAST:event_btnAtualizarActionPerformed
 
     /**
      * @param args the command line arguments

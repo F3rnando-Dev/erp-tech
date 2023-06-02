@@ -73,7 +73,8 @@ public class CadastroUsuarioDao {
         try {
             stmt = conn.prepareStatement("UPDATE erptech.cadastro_usuario SET credencial = ?, nome = ?, senha = ?,"
                     + " email = ?, observacao = ?, acesso_cadastros = ?, acesso_estoque = ?, acesso_qualidade = ?,"
-                    + " acesso_producao = ?, acesso_entregas = ?, acesso_fiscal = ?, acesso_relatorios = ?, acesso_suporte = ?"
+                    + " acesso_compras = ?, acesso_vendas = ?, acesso_producao = ?, acesso_entregas = ?,"
+                    + " acesso_fiscal = ?, acesso_relatorios = ?, acesso_suporte = ?"
                     + "WHERE credencial = ?");
             stmt.setString(1, usuario.getCredencial());
             stmt.setString(2, usuario.getNome());
@@ -91,7 +92,7 @@ public class CadastroUsuarioDao {
             stmt.setBoolean(14, usuario.isAcessoRelatorios());
             stmt.setBoolean(15, usuario.isAcessoSuporte());
 
-            stmt.setString(7, usuario.getCredencial());
+            stmt.setString(16, usuario.getCredencial());
 
             stmt.executeUpdate();
 
