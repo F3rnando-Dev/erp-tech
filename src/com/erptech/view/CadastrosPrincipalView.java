@@ -6,7 +6,7 @@ package com.erptech.view;
 
 import com.erptech.modulo.cadastros.view.CadastroFuncionarioView;
 import com.erptech.modulo.cadastros.view.CadastroProdutoView;
-import com.erptech.modulo.cadastros.view.CadastroUsuario;
+import com.erptech.modulo.cadastros.view.CadastroUsuarioView;
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -194,7 +194,7 @@ public class CadastrosPrincipalView extends javax.swing.JFrame {
 
     private void itemUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemUsuariosActionPerformed
         
-        CadastroUsuario usuarioView = new CadastroUsuario();
+        CadastroUsuarioView usuarioView = new CadastroUsuarioView();
         usuarioView.setVisible(true);
         
     }//GEN-LAST:event_itemUsuariosActionPerformed

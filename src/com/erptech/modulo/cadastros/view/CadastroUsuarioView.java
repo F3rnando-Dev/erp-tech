@@ -4,20 +4,22 @@
  */
 package com.erptech.modulo.cadastros.view;
 
+import com.erptech.modulo.cadastros.dao.CadastroUsuarioDao;
+import com.erptech.modulo.cadastros.model.CadastroUsuarioModel;
 import com.erptech.view.MenuPrincipalView;
 import com.formdev.flatlaf.FlatDarkLaf;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author ferna
  */
-public class CadastroUsuario extends javax.swing.JFrame {
+public class CadastroUsuarioView extends javax.swing.JFrame {
 
-    public CadastroUsuario() {
+    public CadastroUsuarioView() {
         initComponents();
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     @SuppressWarnings("unchecked")
@@ -49,10 +51,10 @@ public class CadastroUsuario extends javax.swing.JFrame {
         ckbFiscal = new javax.swing.JCheckBox();
         ckbRelatorios = new javax.swing.JCheckBox();
         ckbSuporte = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnNovo = new javax.swing.JButton();
+        btnSalvar = new javax.swing.JButton();
+        btnAtualizar = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de usuários");
@@ -100,13 +102,28 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
         ckbSuporte.setText("Suporte");
 
-        jButton1.setText("Novo");
+        btnNovo.setText("Novo");
+        btnNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Salvar");
+        btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Atualizar");
+        btnAtualizar.setText("Atualizar");
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizarActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Excluir");
+        btnExcluir.setText("Excluir");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -159,13 +176,13 @@ public class CadastroUsuario extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(43, 43, 43)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 32, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
@@ -228,11 +245,11 @@ public class CadastroUsuario extends javax.swing.JFrame {
                         .addComponent(ckbSuporte)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAtualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnNovo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnExcluir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -243,9 +260,105 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
         dispose();
         MenuPrincipalView menuPrincipalView = new MenuPrincipalView();
-        menuPrincipalView.setVisible(true);        
-        
+        menuPrincipalView.setVisible(true);
+
     }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
+        lblCredencial.setText("");
+        lblNome.setText("");
+        lblSenha.setText("");
+        lblConfirme.setText("");
+        lblDescricao.setText("");
+        lblEmail.setText("");
+        ckbCadastros.setSelected(false);
+        ckbCompras.setSelected(false);
+        ckbEntregas.setSelected(false);
+        ckbEstoque.setSelected(false);
+        ckbFiscal.setSelected(false);
+        ckbProducao.setSelected(false);
+        ckbQualidade.setSelected(false);
+        ckbRelatorios.setSelected(false);
+        ckbSuporte.setSelected(false);
+        ckbVendas.setSelected(false);
+    }//GEN-LAST:event_btnNovoActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        try {
+            CadastroUsuarioModel usuario = new CadastroUsuarioModel();
+            CadastroUsuarioDao usuarioDao = new CadastroUsuarioDao();
+            usuario.setCredencial(lblCredencial.getText());
+            usuario.setNome(lblNome.getText());
+            usuario.setSenha(lblSenha.getText());
+            usuario.setConfirmarSenha(lblConfirme.getText());
+            usuario.setEmail(lblEmail.getText());
+            usuario.setObservacao(lblDescricao.getText());
+
+            usuario.setAcessoCadastros(ckbCadastros.isSelected());
+            usuario.setAcessoCompras(ckbCompras.isSelected());
+            usuario.setAcessoEntregas(ckbEntregas.isSelected());
+            usuario.setAcessoEstoque(ckbEstoque.isSelected());
+            usuario.setAcessoFiscal(ckbFiscal.isSelected());
+            usuario.setAcessoProducao(ckbProducao.isSelected());
+            usuario.setAcessoQualidade(ckbQualidade.isSelected());
+            usuario.setAcessoRelatorios(ckbRelatorios.isSelected());
+            usuario.setAcessoSuporte(ckbSuporte.isSelected());
+            usuario.setAcessoVendas(ckbVendas.isSelected());
+
+            if (usuario.getSenha().equals(usuario.getConfirmarSenha())) {
+                usuarioDao.cadastrarUsuario(usuario);
+
+                JOptionPane.showMessageDialog(null, "Funcionario cadastrado!");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Senhas divergentes!!");
+            }
+
+        } catch (Exception exception) {
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar funcionario!" + exception);
+        }
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+
+        try {
+            CadastroUsuarioModel usuario = new CadastroUsuarioModel();
+            CadastroUsuarioDao usuarioDao = new CadastroUsuarioDao();
+
+            usuario.setCredencial(lblCredencial.getText());
+            usuario.setNome(lblNome.getText());
+            usuario.setSenha(lblSenha.getText());
+            usuario.setConfirmarSenha(lblConfirme.getText());
+            usuario.setEmail(lblEmail.getText());
+            usuario.setObservacao(lblDescricao.getText());
+
+            usuario.setAcessoCadastros(ckbCadastros.isSelected());
+            usuario.setAcessoCompras(ckbCompras.isSelected());
+            usuario.setAcessoEntregas(ckbEntregas.isSelected());
+            usuario.setAcessoEstoque(ckbEstoque.isSelected());
+            usuario.setAcessoFiscal(ckbFiscal.isSelected());
+            usuario.setAcessoProducao(ckbProducao.isSelected());
+            usuario.setAcessoQualidade(ckbQualidade.isSelected());
+            usuario.setAcessoRelatorios(ckbRelatorios.isSelected());
+            usuario.setAcessoSuporte(ckbSuporte.isSelected());
+            usuario.setAcessoVendas(ckbVendas.isSelected());
+
+            usuarioDao.AtualizarCadastroDeUsuario(usuario);
+
+            if (usuario.getSenha().equals(usuario.getConfirmarSenha())) {
+                usuarioDao.cadastrarUsuario(usuario);
+
+                JOptionPane.showMessageDialog(null, "Cadastro alterado com sucesso!");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Senhas divergentes!!");
+            }
+
+        } catch (Exception exception) {
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar cadastro de funcionario!" + exception);
+        }
+
+    }//GEN-LAST:event_btnAtualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,12 +367,16 @@ public class CadastroUsuario extends javax.swing.JFrame {
         FlatDarkLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroUsuario().setVisible(true);
+                new CadastroUsuarioView().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtualizar;
+    private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnNovo;
+    private javax.swing.JButton btnSalvar;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JCheckBox ckbCadastros;
     private javax.swing.JCheckBox ckbCompras;
@@ -271,10 +388,6 @@ public class CadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JCheckBox ckbRelatorios;
     private javax.swing.JCheckBox ckbSuporte;
     private javax.swing.JCheckBox ckbVendas;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPasswordField lblConfirme;
     private javax.swing.JTextField lblCredencial;

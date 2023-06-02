@@ -24,7 +24,6 @@ public class CadastroFuncionarioView extends javax.swing.JFrame {
         initComponents();
         listarNaTabela();
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     public void listarNaTabela() throws SQLException {
