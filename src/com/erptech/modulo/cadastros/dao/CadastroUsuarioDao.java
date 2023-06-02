@@ -5,10 +5,14 @@
 package com.erptech.modulo.cadastros.dao;
 
 import com.erptech.connection.ConnectionFactory;
+import com.erptech.modulo.cadastros.model.CadastroFuncionarioModel;
 import com.erptech.modulo.cadastros.model.CadastroUsuarioModel;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -71,11 +75,11 @@ public class CadastroUsuarioDao {
         PreparedStatement stmt = null;
 
         try {
-            stmt = conn.prepareStatement("UPDATE erptech.cadastro_usuario SET credencial = ?, nome = ?, senha = ?,"
-                    + " email = ?, observacao = ?, acesso_cadastros = ?, acesso_estoque = ?, acesso_qualidade = ?,"
-                    + " acesso_compras = ?, acesso_vendas = ?, acesso_producao = ?, acesso_entregas = ?,"
-                    + " acesso_fiscal = ?, acesso_relatorios = ?, acesso_suporte = ?"
-                    + "WHERE credencial = ?");
+            stmt = conn.prepareStatement("UPDATE erptech.cadastro_usuario SET credencial = ?, nome = ?, senha = ?,\n"
+                    + "email = ?, observacao = ?, acesso_cadastros = ?, acesso_estoque = ?, \n"
+                    + "acesso_qualidade = ?, acesso_compras = ?, acesso_vendas = ?, acesso_producao = ?, \n"
+                    + "acesso_entregas = ?, acesso_fiscal = ?, acesso_relatorios = ?, acesso_suporte = ?\n"
+                    + "WHERE credencial = ?;");
             stmt.setString(1, usuario.getCredencial());
             stmt.setString(2, usuario.getNome());
             stmt.setString(3, usuario.getSenha());
@@ -97,9 +101,55 @@ public class CadastroUsuarioDao {
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            throw new SQLException(null, ex);
+            throw new SQLException("Erro: ", ex);
         } finally {
             ConnectionFactory.closeConnection(conn, stmt);
         }
+    }
+    
+     public List<CadastroUsuarioModel> carregarUsuario(String credencial) throws SQLException {
+        Connection conn = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<CadastroUsuarioModel> usuarioCarregado = new ArrayList<>();
+
+        try {
+            CadastroUsuarioModel usuario = new CadastroUsuarioModel();
+            stmt = conn.prepareStatement("SELECT * FROM cadastro_usuario WHERE credencial = ?");
+            stmt.setString(1, usuario.getCredencial());
+            
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                
+
+                usuario.setCredencial(rs.getString("CREDENCIAL"));
+                usuario.setNome(rs.getString("NOME"));
+                usuario.setSenha(rs.getString("SENHA"));
+                usuario.setConfirmarSenha(rs.getString("SENHA"));
+                usuario.setEmail(rs.getString("EMAIL"));
+                usuario.setObservacao(rs.getString("OBSERVACAO"));
+                
+                usuario.setAcessoCadastros(rs.getBoolean("ACESSO_CADASTROS"));
+                usuario.setAcessoEstoque(rs.getBoolean("ACESSO_ESTOQUE"));
+                usuario.setAcessoQualidade(rs.getBoolean("ACESSO_QUALIDADE"));
+                usuario.setAcessoCompras(rs.getBoolean("ACESSO_COMPRAS"));
+                usuario.setAcessoVendas(rs.getBoolean("ACESSO_VENAS"));
+                usuario.setAcessoProducao(rs.getBoolean("ACESSO_PRODUCAO"));
+                usuario.setAcessoEntregas(rs.getBoolean("ACESSO_ENTREGAS"));
+                usuario.setAcessoFiscal(rs.getBoolean("ACESSO_FISCAL"));
+                usuario.setAcessoRelatorios(rs.getBoolean("ACESSO_RELATORIOS"));
+                usuario.setAcessoSuporte(rs.getBoolean("ACESSO_SUPORTE"));
+               
+                usuarioCarregado.add(usuario);
+            }
+        } catch (SQLException ex) {
+            throw new SQLException(null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(conn, stmt, rs);
+
+        }
+        return usuarioCarregado;
     }
 }

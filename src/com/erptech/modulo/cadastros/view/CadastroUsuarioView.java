@@ -4,11 +4,17 @@
  */
 package com.erptech.modulo.cadastros.view;
 
+import com.erptech.modulo.cadastros.dao.CadastroFuncionarioDao;
 import com.erptech.modulo.cadastros.dao.CadastroUsuarioDao;
 import com.erptech.modulo.cadastros.model.CadastroUsuarioModel;
 import com.erptech.view.MenuPrincipalView;
 import com.formdev.flatlaf.FlatDarkLaf;
-import javax.swing.JFrame;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -37,7 +43,7 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
         lblCredencial = new javax.swing.JTextField();
         lblNome = new javax.swing.JTextField();
         lblEmail = new javax.swing.JTextField();
-        lblDescricao = new javax.swing.JTextField();
+        lblObservacao = new javax.swing.JTextField();
         lblSenha = new javax.swing.JPasswordField();
         lblConfirme = new javax.swing.JPasswordField();
         jSeparator1 = new javax.swing.JSeparator();
@@ -55,6 +61,7 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
         btnSalvar = new javax.swing.JButton();
         btnAtualizar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de usuários");
@@ -125,6 +132,13 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
 
         btnExcluir.setText("Excluir");
 
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\ferna\\OneDrive\\Documentos\\com\\erp-tech\\src\\midia\\refresh-button-icon.png")); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -148,15 +162,19 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
                                     .addComponent(lblCredencial)
                                     .addComponent(lblNome)
                                     .addComponent(lblSenha))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtDescricao)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtEmail)
-                                        .addGap(45, 45, 45)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addGap(29, 29, 29)
+                                        .addComponent(txtDescricao))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtEmail)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -199,8 +217,10 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtCredencial)
                         .addComponent(lblCredencial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtEmail))
-                    .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtEmail)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -216,7 +236,7 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtConfirme)
                             .addComponent(lblConfirme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(lblDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -269,7 +289,7 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
         lblNome.setText("");
         lblSenha.setText("");
         lblConfirme.setText("");
-        lblDescricao.setText("");
+        lblObservacao.setText("");
         lblEmail.setText("");
         ckbCadastros.setSelected(false);
         ckbCompras.setSelected(false);
@@ -292,7 +312,7 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
             usuario.setSenha(lblSenha.getText());
             usuario.setConfirmarSenha(lblConfirme.getText());
             usuario.setEmail(lblEmail.getText());
-            usuario.setObservacao(lblDescricao.getText());
+            usuario.setObservacao(lblObservacao.getText());
 
             usuario.setAcessoCadastros(ckbCadastros.isSelected());
             usuario.setAcessoCompras(ckbCompras.isSelected());
@@ -308,14 +328,14 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
             if (usuario.getSenha().equals(usuario.getConfirmarSenha())) {
                 usuarioDao.cadastrarUsuario(usuario);
 
-                JOptionPane.showMessageDialog(null, "Funcionario cadastrado!");
+                JOptionPane.showMessageDialog(null, "Usuario cadastrado!");
 
             } else {
                 JOptionPane.showMessageDialog(null, "Senhas divergentes!!");
             }
 
         } catch (Exception exception) {
-            JOptionPane.showMessageDialog(null, "Erro ao cadastrar funcionario!" + exception);
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar usuario!" + exception);
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
@@ -330,7 +350,7 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
             usuario.setSenha(lblSenha.getText());
             usuario.setConfirmarSenha(lblConfirme.getText());
             usuario.setEmail(lblEmail.getText());
-            usuario.setObservacao(lblDescricao.getText());
+            usuario.setObservacao(lblObservacao.getText());
 
             usuario.setAcessoCadastros(ckbCadastros.isSelected());
             usuario.setAcessoCompras(ckbCompras.isSelected());
@@ -343,10 +363,8 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
             usuario.setAcessoSuporte(ckbSuporte.isSelected());
             usuario.setAcessoVendas(ckbVendas.isSelected());
 
-            usuarioDao.AtualizarCadastroDeUsuario(usuario);
-
             if (usuario.getSenha().equals(usuario.getConfirmarSenha())) {
-                usuarioDao.cadastrarUsuario(usuario);
+                usuarioDao.AtualizarCadastroDeUsuario(usuario);
 
                 JOptionPane.showMessageDialog(null, "Cadastro alterado com sucesso!");
 
@@ -355,10 +373,40 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
             }
 
         } catch (Exception exception) {
-            JOptionPane.showMessageDialog(null, "Erro ao atualizar cadastro de funcionario!" + exception);
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar cadastro de usuario!" + exception);
         }
 
     }//GEN-LAST:event_btnAtualizarActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        List<CadastroUsuarioModel> registroDaCredencial = new ArrayList<>();
+        try {
+            CadastroUsuarioDao usuarioDao = new CadastroUsuarioDao();
+            registroDaCredencial = usuarioDao.carregarUsuario(lblCredencial.getText());
+
+            lblNome.setText(registroDaCredencial.get(0).getNome());
+            lblSenha.setText(registroDaCredencial.get(0).getSenha());
+            lblConfirme.setText(registroDaCredencial.get(0).getSenha());
+            lblEmail.setText(registroDaCredencial.get(0).getEmail());
+            lblObservacao.setText(registroDaCredencial.get(0).getObservacao());
+
+            ckbCadastros.setSelected(registroDaCredencial.get(0).isAcessoCadastros());
+            ckbCompras.setSelected(registroDaCredencial.get(0).isAcessoCompras());
+            ckbEntregas.setSelected(registroDaCredencial.get(0).isAcessoEntregas());
+            ckbEstoque.setSelected(registroDaCredencial.get(0).isAcessoEstoque());
+            ckbFiscal.setSelected(registroDaCredencial.get(0).isAcessoFiscal());
+            ckbProducao.setSelected(registroDaCredencial.get(0).isAcessoProducao());
+            ckbQualidade.setSelected(registroDaCredencial.get(0).isAcessoQualidade());
+            ckbRelatorios.setSelected(registroDaCredencial.get(0).isAcessoRelatorios());
+            ckbSuporte.setSelected(registroDaCredencial.get(0).isAcessoSuporte());
+            ckbVendas.setSelected(registroDaCredencial.get(0).isAcessoVendas());
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastroUsuarioView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -388,12 +436,13 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
     private javax.swing.JCheckBox ckbRelatorios;
     private javax.swing.JCheckBox ckbSuporte;
     private javax.swing.JCheckBox ckbVendas;
+    private javax.swing.JButton jButton2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPasswordField lblConfirme;
     private javax.swing.JTextField lblCredencial;
-    private javax.swing.JTextField lblDescricao;
     private javax.swing.JTextField lblEmail;
     private javax.swing.JTextField lblNome;
+    private javax.swing.JTextField lblObservacao;
     private javax.swing.JPasswordField lblSenha;
     private javax.swing.JLabel txtAcessos;
     private javax.swing.JLabel txtConfirme;
