@@ -15,32 +15,32 @@ public class CadastroUsuarioModel {
     private String senha; 
     private String confirmarSenha; 
     private String email; 
-    private String descricao;
+    private String observacao;
     
     private boolean acessoCadastros;
     private boolean acessoEstoque;
     private boolean acessoQualidade;
     private boolean acessoCompras;
     private boolean acessoVendas;
-    private boolean acessoProdução;
+    private boolean acessoProducao;
     private boolean acessoEntregas;
     private boolean acessoFiscal;
     private boolean acessoRelatorios;
     private boolean acessoSuporte;
 
-    public CadastroUsuarioModel(String credencial, String nome, String senha, String confirmarSenha, String email, String descricao, boolean acessoCadastros, boolean acessoEstoque, boolean acessoQualidade, boolean acessoCompras, boolean acessoVendas, boolean acessoProdução, boolean acessoEntregas, boolean acessoFiscal, boolean acessoRelatorios, boolean acessoSuporte) {
+    public CadastroUsuarioModel(String credencial, String nome, String senha, String confirmarSenha, String email, String observacao, boolean acessoCadastros, boolean acessoEstoque, boolean acessoQualidade, boolean acessoCompras, boolean acessoVendas, boolean acessoProducao, boolean acessoEntregas, boolean acessoFiscal, boolean acessoRelatorios, boolean acessoSuporte) {
         this.credencial = credencial;
         this.nome = nome;
         this.senha = senha;
         this.confirmarSenha = confirmarSenha;
         this.email = email;
-        this.descricao = descricao;
+        this.observacao = observacao;
         this.acessoCadastros = acessoCadastros;
         this.acessoEstoque = acessoEstoque;
         this.acessoQualidade = acessoQualidade;
         this.acessoCompras = acessoCompras;
         this.acessoVendas = acessoVendas;
-        this.acessoProdução = acessoProdução;
+        this.acessoProducao = acessoProducao;
         this.acessoEntregas = acessoEntregas;
         this.acessoFiscal = acessoFiscal;
         this.acessoRelatorios = acessoRelatorios;
@@ -87,12 +87,12 @@ public class CadastroUsuarioModel {
         this.email = email;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getObservacao() {
+        return observacao;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
     }
 
     public boolean isAcessoCadastros() {
@@ -135,12 +135,12 @@ public class CadastroUsuarioModel {
         this.acessoVendas = acessoVendas;
     }
 
-    public boolean isAcessoProdução() {
-        return acessoProdução;
+    public boolean isAcessoProducao() {
+        return acessoProducao;
     }
 
-    public void setAcessoProdução(boolean acessoProdução) {
-        this.acessoProdução = acessoProdução;
+    public void setAcessoProducao(boolean acessoProducao) {
+        this.acessoProducao = acessoProducao;
     }
 
     public boolean isAcessoEntregas() {
@@ -177,7 +177,7 @@ public class CadastroUsuarioModel {
 
     @Override
     public String toString() {
-        return "CadastroUsuarioModel{" + "credencial=" + credencial + ", nome=" + nome + ", senha=" + senha + ", confirmarSenha=" + confirmarSenha + ", email=" + email + ", descricao=" + descricao + ", acessoCadastros=" + acessoCadastros + ", acessoEstoque=" + acessoEstoque + ", acessoQualidade=" + acessoQualidade + ", acessoCompras=" + acessoCompras + ", acessoVendas=" + acessoVendas + ", acessoProdu\u00e7\u00e3o=" + acessoProdução + ", acessoEntregas=" + acessoEntregas + ", acessoFiscal=" + acessoFiscal + ", acessoRelatorios=" + acessoRelatorios + ", acessoSuporte=" + acessoSuporte + '}';
+        return "CadastroUsuarioModel{" + "credencial=" + credencial + ", nome=" + nome + ", senha=" + senha + ", confirmarSenha=" + confirmarSenha + ", email=" + email + ", descricao=" + observacao + ", acessoCadastros=" + acessoCadastros + ", acessoEstoque=" + acessoEstoque + ", acessoQualidade=" + acessoQualidade + ", acessoCompras=" + acessoCompras + ", acessoVendas=" + acessoVendas + ", acessoProdu\u00e7\u00e3o=" + acessoProducao + ", acessoEntregas=" + acessoEntregas + ", acessoFiscal=" + acessoFiscal + ", acessoRelatorios=" + acessoRelatorios + ", acessoSuporte=" + acessoSuporte + '}';
     }
     
     
